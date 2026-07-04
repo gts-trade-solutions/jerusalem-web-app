@@ -1,0 +1,178 @@
+import type { EventItem } from "@/types";
+
+/**
+ * One events array powers B&B / worship / fellowship / livestream via `type`.
+ * Dates sit in July–September 2026 (demo "now" is 2026-07-04).
+ */
+export const events: EventItem[] = [
+  {
+    id: "e-bb-kimball",
+    type: "bb",
+    title: "Barbecue & Book of Mormon — Alma's Waters of Mormon",
+    description:
+      "Ribs on the smoker, lemonade in the shade, and a warm open-air study of Mosiah 18. Bring a lawn chair and a friend who's never opened the Book of Mormon.",
+    start: "2026-07-11T23:00:00Z",
+    location: "Kimball Backyard · Cedar Hills, UT",
+    hostName: "David Kimball",
+    image: "bbq-backyard",
+    going: 34,
+    rsvped: false,
+    pin: { x: 32, y: 40 },
+  },
+  {
+    id: "e-bb-porch",
+    type: "bb",
+    title: "Front-Porch Fellowship & Grilled Corn",
+    description:
+      "A low-key weeknight gathering — sweet corn, root beer floats, and a chapter of 3 Nephi read aloud together on the porch.",
+    start: "2026-07-15T01:00:00Z",
+    location: "Nakamura Home · Sandy, UT",
+    hostName: "Ruth Nakamura",
+    image: "porch-evening",
+    going: 18,
+    rsvped: true,
+    pin: { x: 58, y: 52 },
+  },
+  {
+    id: "e-bb-park",
+    type: "bb",
+    title: "Neighborhood Park Cookout — All Are Welcome",
+    description:
+      "Community-wide burgers and testimonies under the pavilion. Games for the kids, cornhole for the grownups, and a short devotional at dusk.",
+    start: "2026-07-19T22:30:00Z",
+    location: "Highland Glen Park · Highland, UT",
+    hostName: "Caleb Anderson",
+    image: "park-cookout",
+    going: 61,
+    rsvped: false,
+    pin: { x: 44, y: 30 },
+  },
+  {
+    id: "e-bb-taco",
+    type: "bb",
+    title: "Taco Night & Testimonies of the Restoration",
+    description:
+      "Street-taco bar plus a guided conversation on Joseph Smith's First Vision. Perfect for inviting neighbors of other faiths.",
+    start: "2026-07-25T00:30:00Z",
+    location: "Cordova Casa · Mesa, AZ",
+    hostName: "Mireya Cordova",
+    image: "taco-night",
+    going: 27,
+    rsvped: false,
+    pin: { x: 70, y: 66 },
+  },
+  {
+    id: "e-worship-fireside",
+    type: "worship",
+    title: "Sabbath Eve Fireside — Come Unto Christ",
+    description:
+      "An hour of hymns, scripture, and quiet reflection to welcome the Sabbath. Guest message from Sister Eliza Whitmer.",
+    start: "2026-07-11T02:00:00Z",
+    location: "Provo 3rd Ward Chapel",
+    hostName: "Eliza Whitmer",
+    image: "fireside-candles",
+    going: 88,
+    rsvped: true,
+    pin: { x: 40, y: 46 },
+  },
+  {
+    id: "e-worship-sacred",
+    type: "worship",
+    title: "Sacred Music & Devotion Night",
+    description:
+      "The Cedar Valley Choir leads an evening of sacred worship music interlaced with short testimonies of the Savior.",
+    start: "2026-07-18T02:00:00Z",
+    location: "American Fork Tabernacle",
+    hostName: "Moroni Tuiasosopo",
+    image: "choir-loft",
+    going: 142,
+    rsvped: false,
+    pin: { x: 50, y: 38 },
+  },
+  {
+    id: "e-fellowship-selfreliance",
+    type: "fellowship",
+    title: "Self-Reliance Circle — Personal Finances",
+    description:
+      "Week 4 of the Church's Personal Finances course. Practical budgeting, provident living, and 'no poor among us' in action.",
+    start: "2026-07-14T01:30:00Z",
+    location: "Mesa 9th Ward · Room 12",
+    hostName: "Mireya Cordova",
+    image: "study-table",
+    going: 14,
+    rsvped: false,
+    pin: { x: 66, y: 60 },
+  },
+  {
+    id: "e-fellowship-sisters",
+    type: "fellowship",
+    title: "Sisters in Zion — Evening of Service & Bread",
+    description:
+      "Baking bread for the ward's newcomers while the sisters share needs, mentor one another, and pray together.",
+    start: "2026-07-16T02:30:00Z",
+    location: "Whitmer Home · Provo, UT",
+    hostName: "Eliza Whitmer",
+    image: "bread-hands",
+    going: 22,
+    rsvped: true,
+    pin: { x: 38, y: 48 },
+  },
+  {
+    id: "e-fellowship-elders",
+    type: "fellowship",
+    title: "Elders Quorum Service Project — Moving Day",
+    description:
+      "Trucks, muscle, and brotherhood. We're helping the Okafor family settle into their new home. Pizza afterward.",
+    start: "2026-07-18T15:00:00Z",
+    location: "Spanish Fork, UT",
+    hostName: "Samuel Okafor",
+    image: "moving-boxes",
+    going: 19,
+    rsvped: false,
+    pin: { x: 46, y: 58 },
+  },
+  {
+    id: "e-live-conference",
+    type: "livestream",
+    title: "Worldwide Devotional for Young Adults",
+    description:
+      "Streamed live from the Conference Center. Gather your fellowship group, project it on the wall, and watch together.",
+    start: "2026-07-13T01:00:00Z",
+    location: "Livestream · Watch Anywhere",
+    hostName: "Church Broadcast",
+    image: "broadcast-hall",
+    going: 512,
+    rsvped: true,
+    pin: { x: 42, y: 42 },
+  },
+  {
+    id: "e-live-temple",
+    type: "livestream",
+    title: "Live Broadcast — Temple Cornerstone Ceremony",
+    description:
+      "Join the dedication broadcast of the new Lindon Utah Temple, followed by a viewer testimony hour in the app.",
+    start: "2026-07-26T18:00:00Z",
+    location: "Livestream · Lindon Utah Temple",
+    hostName: "Church Broadcast",
+    image: "temple-dawn",
+    going: 348,
+    rsvped: false,
+    pin: { x: 48, y: 40 },
+  },
+  {
+    id: "e-live-music",
+    type: "livestream",
+    title: "Virtual Choir Premiere — 'Come, Come, Ye Saints'",
+    description:
+      "A global virtual choir of 2,000 voices premieres online. Sing along from your living room with on-screen lyrics.",
+    start: "2026-07-20T02:00:00Z",
+    location: "Livestream · Worship Nights",
+    hostName: "Cedar Valley Choir",
+    image: "virtual-choir",
+    going: 274,
+    rsvped: false,
+    pin: { x: 54, y: 44 },
+  },
+];
+
+export const eventById = (id: string) => events.find((e) => e.id === id);
