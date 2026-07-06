@@ -1,51 +1,38 @@
 import { Container } from "./ui/Container";
 import { Reveal } from "./ui/Reveal";
 import { CopyVerse } from "./CopyVerse";
-import { Ornament, SpireSilhouette } from "./Sacred";
-import { sacredImage } from "@/lib/images";
+import { SkylineArt } from "./Sacred";
 import { ribbons } from "@/data/scriptures";
 
-/** Signature dark scripture band shown near the foot of most pages. */
+/** Signature deep-navy scripture band at the foot of every page. */
 export function ScriptureRibbon({ page = "home" }: { page?: keyof typeof ribbons }) {
   const set = ribbons[page] ?? ribbons.home;
   return (
-    <section className="relative overflow-hidden bg-ink-900 text-bone grain" aria-label="Scripture references">
-      {/* faint open-scripture texture */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={sacredImage("scripture-dark", 1600, 700)}
-        alt=""
-        loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-25"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(12,11,24,0.65),rgba(23,22,43,0.9))]" />
-      <div className="pointer-events-none absolute inset-0 dawn-wash opacity-30" />
+    <section className="relative overflow-hidden bg-ink-900 text-white" aria-label="Scripture references">
+      {/* skyline line-art, both lower corners */}
+      <SkylineArt className="pointer-events-none absolute bottom-0 left-0 h-16 w-64 opacity-60" />
+      <SkylineArt className="pointer-events-none absolute bottom-0 right-0 h-16 w-64 -scale-x-100 opacity-60" />
 
-      {/* temple-spire skyline cutting in from the page above */}
-      <SpireSilhouette className="relative z-[1] h-8 sm:h-10" />
-
-      <Container className="relative z-[1] pb-14 pt-10">
+      <Container className="relative z-[1] py-12">
         <Reveal>
           <div className="flex flex-col items-center text-center">
-            <Ornament tone="light" className="mb-7" />
-            <blockquote className="max-w-2xl font-serif text-2xl italic leading-snug text-white/90 sm:text-3xl text-balance">
-              <span className="shimmer-gold float-left mr-2 mt-1 font-serif text-6xl font-semibold not-italic leading-[0.8] sm:text-7xl" aria-hidden>
-                {set.featured.text.charAt(0)}
-              </span>
-              {set.featured.text.slice(1)}”
+            <span className="mb-4 h-px w-16 bg-gradient-to-r from-transparent via-[#e6c164] to-transparent" aria-hidden />
+            <blockquote className="mx-auto max-w-2xl font-serif text-xl italic leading-snug text-white/95 sm:text-2xl text-balance">
+              “{set.featured.text}”
             </blockquote>
-            <cite className="mt-4 text-sm font-semibold not-italic uppercase tracking-[0.2em] text-[#e6c67d]">
-              {set.featured.ref}
+            <cite className="mt-3 text-sm font-semibold not-italic tracking-wide text-[#e6c164]">
+              — {set.featured.ref}
             </cite>
             <CopyVerse text={set.featured.text} refLabel={set.featured.ref} />
           </div>
         </Reveal>
+
         <Reveal delay={0.1}>
-          <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-3 border-t border-white/10 pt-8">
-            {set.refs.map((r) => (
-              <span key={r.ref} className="group inline-flex items-center gap-2 text-sm text-white/60 transition-all duration-300 hover:-translate-y-0.5 hover:text-[#e6c67d]">
-                <span className="size-1 rounded-full bg-[#d6ab54]/70" />
-                <span className="font-medium">{r.ref}</span>
+          <div className="mx-auto mt-9 flex max-w-4xl flex-wrap items-center justify-center gap-x-3 gap-y-2 border-t border-white/12 pt-7 text-sm text-white/65">
+            {set.refs.map((r, i) => (
+              <span key={r.ref} className="inline-flex items-center gap-3">
+                {i > 0 && <span className="text-white/25">|</span>}
+                <span className="font-medium transition-colors hover:text-[#e6c164]">{r.ref}</span>
               </span>
             ))}
           </div>

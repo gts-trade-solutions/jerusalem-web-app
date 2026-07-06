@@ -7,7 +7,7 @@ import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { NAV, brand } from "@/lib/nav";
 import { useUser } from "@/context/UserContext";
 import { Icon } from "./Icon";
-import { LogoMark } from "./Sacred";
+import { LogoEmblem } from "./Sacred";
 import { ThemeToggle } from "./ThemeToggle";
 import { SettingsPopover } from "./SettingsPopover";
 import { Avatar } from "./ui/Avatar";
@@ -39,35 +39,28 @@ export function TopNav() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-[80] border-b transition-all duration-300",
-          scrolled
-            ? "border-border bg-bg/95 backdrop-blur-sm shadow-sm"
-            : "border-transparent bg-bg/55 backdrop-blur-sm",
+          "sticky top-0 z-[80] border-b border-border bg-bg/95 backdrop-blur-sm transition-shadow duration-300",
+          scrolled && "shadow-sm",
         )}
       >
-        <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/45 to-transparent" aria-hidden />
-        {/* reading progress */}
+        {/* reading progress hairline */}
         <motion.span
-          className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-accent-strong via-accent to-[#e6c67d]"
+          className="pointer-events-none absolute bottom-0 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-accent-strong via-accent to-[#e6c164]"
           style={{ scaleX: scrollYProgress }}
           aria-hidden
         />
-        <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-[4.6rem] max-w-[1400px] items-center gap-4 px-4 sm:px-6 lg:px-8">
           {/* brand */}
-          <Link href="/" className="group flex items-center gap-2.5" aria-label={`${brand.name} home`}>
-            <span className="relative grid size-9 place-items-center rounded-t-full rounded-b-lg bg-ink pb-0.5 pt-1 text-bg shadow-sm dark:bg-accent dark:text-accent-fg">
-              <LogoMark size={20} />
-            </span>
-            <span className="flex flex-col leading-none">
-              <span className="font-serif text-lg font-semibold tracking-tight text-ink">{brand.name}</span>
-              <span className="hidden text-[10px] font-medium uppercase tracking-[0.14em] text-accent sm:block">
-                Zion is Gathering
-              </span>
+          <Link href="/" className="group flex shrink-0 items-center gap-3" aria-label={`${brand.name} home`}>
+            <LogoEmblem size={46} className="transition-transform group-hover:scale-105" />
+            <span className="flex flex-col leading-tight">
+              <span className="font-serif text-xl font-bold tracking-tight text-ink">{brand.name} App</span>
+              <span className="hidden text-[11px] font-medium text-muted sm:block">{brand.tagline}</span>
             </span>
           </Link>
 
-          {/* desktop nav */}
-          <nav className="mx-auto hidden items-center gap-0.5 xl:flex" aria-label="Primary">
+          {/* desktop nav — icon over label with gold underline */}
+          <nav className="ml-auto hidden items-stretch gap-1 xl:flex" aria-label="Primary">
             {NAV.map((item) => {
               const active = isActive(pathname, item.href);
               return (
@@ -75,15 +68,18 @@ export function TopNav() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                    active ? "text-ink" : "text-muted hover:text-ink",
+                    "group relative flex w-[6.2rem] flex-col items-center justify-start gap-1 px-1.5 pb-3 pt-2 text-center transition-colors",
+                    active ? "text-accent-strong dark:text-accent" : "text-ink-soft hover:text-accent-strong dark:hover:text-accent",
                   )}
                 >
-                  {item.short}
+                  <Icon name={item.icon} size={20} strokeWidth={active ? 2.1 : 1.8} />
+                  <span className={cn("text-[11px] leading-tight", active ? "font-semibold" : "font-medium")}>
+                    {item.label}
+                  </span>
                   {active && (
                     <motion.span
                       layoutId="topnav-underline"
-                      className="absolute inset-x-2.5 -bottom-0.5 h-0.5 rounded-full bg-accent"
+                      className="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-accent"
                       transition={{ type: "spring", stiffness: 400, damping: 32 }}
                     />
                   )}
@@ -93,7 +89,7 @@ export function TopNav() {
           </nav>
 
           {/* right cluster */}
-          <div className="ml-auto flex items-center gap-2 xl:ml-0">
+          <div className="ml-auto flex items-center gap-2 xl:ml-4">
             <ThemeToggle className="hidden sm:grid" />
             <SettingsPopover />
             {isAuthenticated ? (
@@ -108,7 +104,7 @@ export function TopNav() {
               </button>
             ) : (
               <Link href="/auth/sign-in" className="hidden sm:block">
-                <Button size="sm" variant="accent" icon="LogIn">Sign in</Button>
+                <Button size="sm" variant="primary" icon="LogIn">Sign In</Button>
               </Link>
             )}
 
@@ -116,7 +112,7 @@ export function TopNav() {
             <button
               onClick={() => setDrawer(true)}
               aria-label="Open menu"
-              className="grid size-9 place-items-center rounded-full border border-border bg-surface text-ink xl:hidden"
+              className="grid size-10 place-items-center rounded-full border border-border bg-surface text-ink xl:hidden"
             >
               <Icon name="Menu" size={18} />
             </button>
@@ -143,7 +139,10 @@ export function TopNav() {
               transition={{ type: "spring", stiffness: 340, damping: 34 }}
             >
               <div className="relative z-[1] flex items-center justify-between border-b border-border px-5 py-4">
-                <span className="font-serif text-lg font-semibold text-ink">{brand.name}</span>
+                <span className="flex items-center gap-2.5">
+                  <LogoEmblem size={34} />
+                  <span className="font-serif text-lg font-bold text-ink">{brand.name} App</span>
+                </span>
                 <button
                   onClick={() => setDrawer(false)}
                   aria-label="Close menu"

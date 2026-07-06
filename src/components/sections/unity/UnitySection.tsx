@@ -28,7 +28,8 @@ export function UnitySection() {
     <>
       <SectionHero
         eyebrow="Invitation to Unity"
-        image="sunset-gathering"
+        image="hero-unity"
+        align="left"
         title="Come, let us gather as one — of one heart and one mind"
         subtitle="Zion is a people knit together in love, worshiping shoulder to shoulder, rejoicing at one another's tables, and bearing one another up. There is a seat here with your name on it. Come and belong."
         verse={ribbons.unity.featured}
@@ -42,7 +43,7 @@ export function UnitySection() {
         <Button
           size="lg"
           variant="outline"
-          className="border-white/25 bg-white/5 text-white hover:bg-white/10 hover:border-white/40"
+
           iconRight="ArrowRight"
           onClick={() => {
             setActive("groups");

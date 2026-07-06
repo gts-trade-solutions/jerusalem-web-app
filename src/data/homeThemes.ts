@@ -11,8 +11,10 @@ export const homeThemes: HomeTheme[] = [
       text: "And it shall come to pass that I will gather my people together as a man gathereth his sheep.",
       ref: "3 Nephi 16:15",
     },
-    gradient:
-      "radial-gradient(120% 90% at 12% -10%, rgba(214,171,84,0.45), transparent 55%), radial-gradient(130% 120% at 100% 0%, rgba(58,106,93,0.35), transparent 55%), linear-gradient(160deg, #17162b, #241f3f 60%, #2c2547)",
+    gradient: "",
+    image: "hero-pioneer",
+    accent: "teal",
+    sectionTitle: "How We Gather and Build Together",
     featureCards: [
       { id: "fc-g1", icon: "DoorOpen", title: "Open Every Door", body: "Turn ordinary front porches into gathering places. Host a table, welcome a neighbor, watch Zion grow." },
       { id: "fc-g2", icon: "HeartHandshake", title: "Lift One Another", body: "Pray for real needs, answer real needs. A community that carries each other's burdens as Christ carried ours." },
@@ -35,8 +37,10 @@ export const homeThemes: HomeTheme[] = [
       text: "I will take you one of a city, and two of a family, and I will bring you to Zion.",
       ref: "Jeremiah 3:14",
     },
-    gradient:
-      "radial-gradient(120% 100% at 85% -10%, rgba(214,171,84,0.4), transparent 55%), radial-gradient(120% 120% at 0% 10%, rgba(43,90,79,0.4), transparent 55%), linear-gradient(200deg, #141327, #201b39 55%, #322a4d)",
+    gradient: "",
+    image: "hero-heritage",
+    accent: "teal",
+    sectionTitle: "How We Gather and Build Together",
     featureCards: [
       { id: "fc-h1", icon: "Globe2", title: "One Family, Many Lands", body: "Temples from Laie to Accra to Rome — a gathering that knows no border and forgets no soul." },
       { id: "fc-h2", icon: "ScrollText", title: "Roots of the Restoration", body: "Walk the covenant story from Joseph's grove to your own kitchen table. The Restoration is still unfolding." },
@@ -59,12 +63,17 @@ export const homeThemes: HomeTheme[] = [
       text: "And they had all things common among them; therefore there were not rich and poor.",
       ref: "4 Nephi 1:3",
     },
-    gradient:
-      "radial-gradient(110% 90% at 20% 110%, rgba(58,106,93,0.5), transparent 55%), radial-gradient(120% 120% at 100% 0%, rgba(214,171,84,0.35), transparent 55%), linear-gradient(150deg, #16182c, #1f2439 55%, #2a3348)",
+    gradient: "",
+    image: "hero-welfare",
+    accent: "gold",
+    sectionTitle: "How We Care for One Another",
     featureCards: [
-      { id: "fc-w1", icon: "HandHeart", title: "Serve With Your Hands", body: "Find a JustServe project near you today. Faith without works is quiet; Zion is loud with love." },
-      { id: "fc-w2", icon: "Sprout", title: "Build Self-Reliance", body: "Employment, education, and finances — courses and circles that help every family stand on its own feet." },
-      { id: "fc-w3", icon: "Wheat", title: "Share the Harvest", body: "Meal coordination, storehouse drives, and neighborly generosity that make sure every table is full." },
+      { id: "fc-w1", icon: "Wheat", title: "Bread", body: "Ensure access to nutritious food for all through pantries, meals, and community support." },
+      { id: "fc-w2", icon: "Sprout", title: "Gardens", body: "Grow together and share produce. Strengthen families and neighborhoods with the harvest." },
+      { id: "fc-w3", icon: "Sun", title: "Chickens", body: "Provide resources and training for raising poultry and building sustainable food at home." },
+      { id: "fc-w4", icon: "Users", title: "Self-Reliance Groups", body: "Join with others to learn, create, and achieve economic and spiritual independence." },
+      { id: "fc-w5", icon: "Briefcase", title: "Employment Leads", body: "Find job opportunities, training, and support for meaningful, dignified work." },
+      { id: "fc-w6", icon: "Handshake", title: "Community Resources", body: "Connect to local aid, services, and tools that build stronger lives together." },
     ],
     scriptures: [
       { book: "4 Nephi", ref: "4 Nephi 1:3" },

@@ -31,7 +31,7 @@ export function NeighborSection() {
     <>
       <SectionHero
         eyebrow="Loving Our Neighbor"
-        image="hands-heart"
+        image="hero-neighbor"
         title="Bear one another's burdens, that they may be light"
         subtitle="This is the heart of Zion — a people who pray for one another, lift the fallen, feed the hungry, and answer real needs with real hands. Find a place to serve, and let someone serve you."
         verse={ribbons.neighbor.featured}
@@ -46,7 +46,7 @@ export function NeighborSection() {
           <Button
             size="lg"
             variant="outline"
-            className="border-white/25 bg-white/5 text-white hover:bg-white/10 hover:border-white/40"
+
             iconRight="ArrowRight"
           >
             See Gatherings Near You

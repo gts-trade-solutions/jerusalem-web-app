@@ -2,7 +2,7 @@ import Link from "next/link";
 import { NAV, brand } from "@/lib/nav";
 import { Container } from "./ui/Container";
 import { Icon } from "./Icon";
-import { LogoMark, Ornament } from "./Sacred";
+import { LogoEmblem, Ornament } from "./Sacred";
 
 export function Footer() {
   return (
@@ -11,10 +11,8 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5">
-              <span className="grid size-9 place-items-center rounded-t-full rounded-b-lg bg-ink pb-0.5 pt-1 text-bg dark:bg-accent dark:text-accent-fg">
-                <LogoMark size={20} />
-              </span>
-              <span className="font-serif text-lg font-semibold text-ink">{brand.name}</span>
+              <LogoEmblem size={38} />
+              <span className="font-serif text-lg font-bold text-ink">{brand.name} App</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted text-pretty">
               {brand.tagline}. A private, faith-centered community for Latter-day Saints and searching friends.

@@ -9,6 +9,12 @@ const UNSPLASH = "https://images.unsplash.com";
 
 /** Verified photo library, keyed by a semantic name. */
 export const LIBRARY: Record<string, string> = {
+  // golden-hour section hero banners (light, warm, sacred)
+  "temple-golden": "photo-1470252649378-9c29740c9fa8", // golden sunrise field
+  "stained-glass": "photo-1519681393784-d120267933ba", // sunlit stained-glass chapel
+  "misty-lake": "photo-1477322524744-0eece9e79640", // still misty forest lake
+  "lavender-dawn": "photo-1499002238440-d264edd596ec", // lavender field at first light
+
   // worship & church spaces
   "worship-night-warm": "photo-1438232992991-995b7058bbb3", // congregation, warm light, raised hand
   "cathedral-arches": "photo-1473177104440-ffee2f376098", // white chapel arches, morning light
@@ -72,6 +78,18 @@ export const LIBRARY: Record<string, string> = {
 
 /** Exact app-seed → library-key aliases (event images, album covers, panels). */
 const ALIASES: Record<string, string> = {
+  // section hero banners
+  "hero-home": "temple-golden",
+  "hero-neighbor": "golden-dawn",
+  "hero-faith": "cathedral-arches",
+  "hero-unity": "lavender-dawn",
+  "hero-music": "cathedral-arches",
+  "hero-events": "golden-dawn",
+  "hero-security": "mountain-sunset",
+  "hero-welfare": "lavender-dawn",
+  "hero-heritage": "misty-lake",
+  "hero-pioneer": "mountain-sunset",
+
   // events
   "bbq-backyard": "barbecue-feast",
   "porch-evening": "sunset-gathering",

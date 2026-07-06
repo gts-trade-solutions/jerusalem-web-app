@@ -16,13 +16,18 @@ export function SubTabs({
   active,
   onChange,
   className,
+  accent = "gold",
 }: {
   tabs: TabDef[];
   active: string;
   onChange: (id: string) => void;
   className?: string;
+  accent?: "gold" | "green" | "teal";
 }) {
   const group = useId();
+  const activeText =
+    accent === "green" ? "text-sage" : accent === "teal" ? "text-teal" : "text-accent-strong dark:text-accent";
+  const bar = accent === "green" ? "bg-sage" : accent === "teal" ? "bg-teal" : "bg-accent";
 
   function onKey(e: React.KeyboardEvent, idx: number) {
     if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
@@ -39,7 +44,7 @@ export function SubTabs({
       role="tablist"
       aria-label="Section tabs"
       className={cn(
-        "no-scrollbar flex gap-1.5 overflow-x-auto rounded-2xl border border-border bg-surface/95 p-1.5 backdrop-blur-sm",
+        "no-scrollbar flex justify-start gap-1 overflow-x-auto border-b border-border bg-surface/95 px-2 backdrop-blur-sm sm:justify-center sm:gap-2",
         className,
       )}
     >
@@ -55,21 +60,19 @@ export function SubTabs({
             onKeyDown={(e) => onKey(e, i)}
             onClick={() => onChange(t.id)}
             className={cn(
-              "relative flex shrink-0 items-center gap-2 whitespace-nowrap rounded-xl px-4 py-2 text-sm font-medium transition-colors",
-              selected ? "text-accent-fg" : "text-muted hover:text-ink",
+              "relative flex shrink-0 items-center gap-2 whitespace-nowrap px-4 py-4 text-sm font-medium transition-colors",
+              selected ? activeText : "text-muted hover:text-ink",
             )}
           >
+            {t.icon && <Icon name={t.icon} size={17} strokeWidth={selected ? 2.1 : 1.8} />}
+            {t.label}
             {selected && (
               <motion.span
-                layoutId="subtab-pill"
-                className="absolute inset-0 rounded-xl bg-gradient-to-b from-ink to-ink-soft shadow-[0_6px_18px_-6px_color-mix(in_oklab,var(--ink)_55%,transparent)] dark:from-accent dark:to-accent-strong dark:shadow-[0_6px_18px_-6px_color-mix(in_oklab,var(--accent)_60%,transparent)]"
+                layoutId={`subtab-underline-${group}`}
+                className={cn("absolute inset-x-2 bottom-0 h-[3px] rounded-full", bar)}
                 transition={{ type: "spring", stiffness: 400, damping: 34 }}
               />
             )}
-            <span className={cn("relative z-[1] flex items-center gap-2", selected && "dark:text-accent-fg")}>
-              {t.icon && <Icon name={t.icon} size={15} />}
-              {t.label}
-            </span>
           </button>
         );
       })}

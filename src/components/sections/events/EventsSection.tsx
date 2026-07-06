@@ -32,7 +32,7 @@ export function EventsSection() {
     <>
       <SectionHero
         eyebrow="Neighborhood B&B Events"
-        image="barbecue-feast"
+        image="hero-events"
         title="Barbecue, the Book of Mormon, and a place at the table for everyone"
         subtitle="Zion is built one backyard at a time. Gather your neighbors for a Barbecue & Book of Mormon night — good food, open scripture, and the kind of fellowship that turns strangers into family."
         verse={ribbons.events.featured}
@@ -46,7 +46,7 @@ export function EventsSection() {
         <Button
           size="lg"
           variant="outline"
-          className="border-white/25 bg-white/5 text-white hover:bg-white/10 hover:border-white/40"
+
           iconRight="ArrowRight"
           onClick={() => setHostOpen(true)}
         >

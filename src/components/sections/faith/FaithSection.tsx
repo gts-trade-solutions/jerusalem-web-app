@@ -47,7 +47,8 @@ export function FaithSection() {
     <>
       <SectionHero
         eyebrow="Sharing Our Faith in Christ"
-        image="scripture-dark"
+        image="hero-faith"
+        align="left"
         title="We talk of Christ, we rejoice in Christ"
         subtitle="A gathering place for the witnesses of Jesus Christ — where prophetic counsel, the testimonies of ordinary Saints, the scriptures, and the temples all point to one source of light."
         verse={ribbons.faith.featured}
@@ -64,7 +65,7 @@ export function FaithSection() {
         <Button
           size="lg"
           variant="outline"
-          className="border-white/25 bg-white/5 text-white hover:bg-white/10"
+
           icon="Send"
           onClick={() => setActive("testimony")}
         >

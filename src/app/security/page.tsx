@@ -17,7 +17,8 @@ export default function SecurityPage() {
     <>
       <SectionHero
         eyebrow="Authentication & Security"
-        image="peaks-clouds"
+        image="hero-security"
+        align="left"
         title="Your Safety. Our Priority."
         subtitle="A gathered people can only flourish where every soul feels safe. These tools guard your account, shelter our youth, and keep trust at the heart of the community."
         verse={ribbons.security.featured}

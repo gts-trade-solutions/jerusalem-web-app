@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { themeScript } from "@/context/ThemeContext";
 import { Providers } from "@/components/Providers";
@@ -9,11 +9,11 @@ import { Footer } from "@/components/Footer";
 import { MediaPlayer } from "@/components/MediaPlayer";
 import { Toaster } from "@/components/ui/Toaster";
 
-const fraunces = Fraunces({
+const playfair = Playfair_Display({
   variable: "--font-fraunces",
   subsets: ["latin"],
   display: "swap",
-  axes: ["opsz"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 const inter = Inter({
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#17162b",
+  themeColor: "#16265c",
   width: "device-width",
   initialScale: 1,
 };
@@ -41,7 +41,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="en" className={`${playfair.variable} ${inter.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

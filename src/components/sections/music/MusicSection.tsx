@@ -31,7 +31,8 @@ export function MusicSection() {
     <>
       <SectionHero
         eyebrow="Worshipping Christ Through Music"
-        image="orchestra-strings"
+        image="hero-music"
+        align="left"
         title="The song of the righteous is a prayer unto Him"
         subtitle="Sacred hymns, gathered choirs, and the young voices of Zion — lift your heart in worship and let the music of the Restoration draw you nearer to Christ. Press play, join a choir, and sing along with Saints across the world."
         verse={ribbons.music.featured}
@@ -46,7 +47,7 @@ export function MusicSection() {
           <Button
             size="lg"
             variant="outline"
-            className="border-white/25 bg-white/5 text-white hover:bg-white/10 hover:border-white/40"
+
             iconRight="ArrowRight"
           >
             Worship Nights Near You

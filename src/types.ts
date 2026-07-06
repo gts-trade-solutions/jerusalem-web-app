@@ -103,7 +103,10 @@ export interface HomeTheme {
   title: string;
   subtitle: string;
   verse: { text: string; ref: string };
-  gradient: string; // css gradient string for the hero wash
+  gradient: string; // css gradient string (legacy dark wash; unused in light theme)
+  image: string; // curated hero image key
+  accent: "gold" | "green" | "teal";
+  sectionTitle: string; // "How We Gather and Build Together"
   featureCards: FeatureCard[];
   scriptures: ScriptureRef[];
 }
