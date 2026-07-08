@@ -49,37 +49,38 @@ export function TopNav() {
           style={{ scaleX: scrollYProgress }}
           aria-hidden
         />
-        <div className="mx-auto flex h-[4.6rem] max-w-[1400px] items-center gap-4 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-[4.9rem] max-w-[1440px] items-stretch gap-4 px-4 sm:px-6 lg:px-8">
           {/* brand */}
           <Link href="/" className="group flex shrink-0 items-center gap-3" aria-label={`${brand.name} home`}>
             <LogoEmblem size={46} className="transition-transform group-hover:scale-105" />
             <span className="flex flex-col leading-tight">
-              <span className="font-serif text-xl font-bold tracking-tight text-ink">{brand.name} App</span>
+              <span className="font-serif text-lg font-bold tracking-tight text-ink lg:text-xl">{brand.name} App</span>
               <span className="hidden text-[11px] font-medium text-muted sm:block">{brand.tagline}</span>
             </span>
           </Link>
 
-          {/* desktop nav — icon over label with gold underline */}
-          <nav className="ml-auto hidden items-stretch gap-1 xl:flex" aria-label="Primary">
+          {/* desktop nav — icon over 2-line label with aligned gold underline */}
+          <nav className="ml-auto hidden items-stretch xl:flex" aria-label="Primary">
             {NAV.map((item) => {
               const active = isActive(pathname, item.href);
               return (
                 <Link
                   key={item.href}
                   href={item.href}
+                  aria-current={active ? "page" : undefined}
                   className={cn(
-                    "group relative flex w-[6.2rem] flex-col items-center justify-start gap-1 px-1.5 pb-3 pt-2 text-center transition-colors",
+                    "group relative flex w-[6.1rem] flex-col items-center gap-1.5 px-1.5 pt-3 text-center transition-colors",
                     active ? "text-accent-strong dark:text-accent" : "text-ink-soft hover:text-accent-strong dark:hover:text-accent",
                   )}
                 >
-                  <Icon name={item.icon} size={20} strokeWidth={active ? 2.1 : 1.8} />
-                  <span className={cn("text-[11px] leading-tight", active ? "font-semibold" : "font-medium")}>
+                  <Icon name={item.icon} size={22} strokeWidth={active ? 2.1 : 1.8} />
+                  <span className={cn("flex h-[1.9rem] items-start justify-center text-[11px] leading-[1.15] line-clamp-2", active ? "font-semibold" : "font-medium")}>
                     {item.label}
                   </span>
                   {active && (
                     <motion.span
                       layoutId="topnav-underline"
-                      className="absolute inset-x-2 bottom-0 h-0.5 rounded-full bg-accent"
+                      className="absolute inset-x-2.5 bottom-0 h-[3px] rounded-t-full bg-accent"
                       transition={{ type: "spring", stiffness: 400, damping: 32 }}
                     />
                   )}
@@ -88,35 +89,14 @@ export function TopNav() {
             })}
           </nav>
 
-          {/* right cluster */}
-          <div className="ml-auto flex items-center gap-2 xl:ml-4">
-            <ThemeToggle className="hidden sm:grid" />
-            <SettingsPopover />
-            {isAuthenticated ? (
-              <button
-                onClick={signOut}
-                className="hidden items-center gap-2 rounded-full border border-border bg-surface py-1 pl-1 pr-3 transition-colors hover:border-accent/40 sm:flex"
-                aria-label="Sign out"
-              >
-                <Avatar name={user.name} seed={user.id} size={30} />
-                <span className="text-sm font-medium text-ink">{user.name.split(" ")[0]}</span>
-                <Icon name="LogOut" size={14} />
-              </button>
-            ) : (
-              <Link href="/auth/sign-in" className="hidden sm:block">
-                <Button size="sm" variant="primary" icon="LogIn">Sign In</Button>
-              </Link>
-            )}
-
-            {/* mobile menu button */}
-            <button
-              onClick={() => setDrawer(true)}
-              aria-label="Open menu"
-              className="grid size-10 place-items-center rounded-full border border-border bg-surface text-ink xl:hidden"
-            >
-              <Icon name="Menu" size={18} />
-            </button>
-          </div>
+          {/* mobile / tablet menu button */}
+          <button
+            onClick={() => setDrawer(true)}
+            aria-label="Open menu"
+            className="my-auto ml-auto grid size-10 place-items-center rounded-full border border-border bg-surface text-ink xl:hidden"
+          >
+            <Icon name="Menu" size={18} />
+          </button>
         </div>
       </header>
 
@@ -174,7 +154,14 @@ export function TopNav() {
                   );
                 })}
               </nav>
-              <div className="relative z-[1] mt-auto border-t border-border p-4">
+              <div className="relative z-[1] mt-auto space-y-3 border-t border-border p-4">
+                <div className="flex items-center justify-between rounded-xl border border-border p-2.5">
+                  <span className="pl-1 text-xs font-semibold uppercase tracking-wide text-faint">Preview tools</span>
+                  <span className="flex items-center gap-2">
+                    <ThemeToggle />
+                    <SettingsPopover />
+                  </span>
+                </div>
                 {isAuthenticated ? (
                   <button onClick={signOut} className="flex w-full items-center gap-3 rounded-xl border border-border p-3">
                     <Avatar name={user.name} seed={user.id} size={38} />

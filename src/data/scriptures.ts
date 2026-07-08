@@ -3,21 +3,40 @@ import type { ScriptureRef } from "@/types";
 /** Scripture-ribbon sets keyed per page + a featured verse for each. */
 export interface RibbonSet {
   featured: { text: string; ref: string };
+  /** optional second line, e.g. an Articles of Faith statement */
+  secondary?: { text: string; ref: string };
   refs: ScriptureRef[];
 }
 
 export const ribbons: Record<string, RibbonSet> = {
   home: {
     featured: {
-      text: "For behold, this is my work and my glory — to bring to pass the immortality and eternal life of man.",
-      ref: "Moses 1:39",
+      text: "That there should be no poor among you.",
+      ref: "Deuteronomy 15:4",
+    },
+    secondary: {
+      text: "We believe in being honest, true, chaste, benevolent, virtuous, and in doing good to all men.",
+      ref: "Articles of Faith 1:13",
     },
     refs: [
-      { book: "Moses", ref: "Moses 1:39" },
-      { book: "3 Nephi", ref: "3 Nephi 16:15" },
-      { book: "D&C", ref: "D&C 29:7" },
-      { book: "Isaiah", ref: "Isaiah 2:2" },
       { book: "Moses", ref: "Moses 7:18" },
+      { book: "Mosiah", ref: "Mosiah 4:26" },
+      { book: "Mosiah", ref: "Mosiah 18:27" },
+      { book: "Mosiah", ref: "Mosiah 27:4" },
+      { book: "Alma", ref: "Alma 1:26" },
+      { book: "Romans", ref: "Romans 15:26" },
+      { book: "D&C", ref: "D&C 136:28" },
+      { book: "D&C", ref: "D&C 25:12" },
+      { book: "2 Chronicles", ref: "2 Chronicles 29:30" },
+      { book: "2 Samuel", ref: "2 Samuel 6:5" },
+      { book: "1 Chronicles", ref: "1 Chronicles 25:3" },
+      { book: "Mormon", ref: "Mormon 7:7" },
+      { book: "1 Samuel", ref: "1 Samuel 16:23" },
+      { book: "1 Chronicles", ref: "1 Chronicles 25:6" },
+      { book: "Ezekiel", ref: "Ezekiel 40:44" },
+      { book: "Psalms", ref: "Psalm 96:1" },
+      { book: "Isaiah", ref: "Isaiah 42:10" },
+      { book: "Psalms", ref: "Psalm 147:7" },
     ],
   },
   neighbor: {
@@ -87,8 +106,8 @@ export const ribbons: Record<string, RibbonSet> = {
   },
   security: {
     featured: {
-      text: "Be still, and know that I am God.",
-      ref: "Psalm 46:10",
+      text: "The Lord is my light and my salvation; whom shall I fear?",
+      ref: "Psalm 27:1",
     },
     refs: [
       { book: "Psalms", ref: "Psalm 46:10" },

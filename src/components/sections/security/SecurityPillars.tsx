@@ -1,8 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Reveal } from "@/components/ui/Reveal";
-import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Modal } from "@/components/ui/Modal";
@@ -15,45 +13,83 @@ import { ToggleRow } from "./Toggle";
 
 type PillarKey = "verify" | "youth" | "trust" | "signin";
 
+/** reference palette: forest green, royal navy, antique gold */
+const COLORS = {
+  green: "#2f5d3a",
+  navy: "#1e3a8a",
+  gold: "#b8892b",
+} as const;
+
 const pillars: {
   key: PillarKey;
   icon: string;
-  tone: "accent" | "sage";
+  overlay?: string;
+  color: keyof typeof COLORS;
+  overlayColor?: keyof typeof COLORS;
   title: string;
-  body: string;
+  sub: string;
+  items: { t: string; d: string }[];
   cta: string;
 }[] = [
   {
     key: "verify",
-    icon: "BadgeCheck",
-    tone: "accent",
+    icon: "ShieldCheck",
+    color: "green",
     title: "Account Verification",
-    body: "Confirm who you are so neighbors can gather in confidence. Verify your email, phone, and identity to earn the Trusted Member badge.",
-    cta: "Manage verification",
+    sub: "Build trust through verified identities and reliable members.",
+    items: [
+      { t: "Email Verification", d: "Confirm your email address" },
+      { t: "Phone Verification", d: "Verify your phone number" },
+      { t: "Trusted Member Badge", d: "Earn a badge for active, Christ-centered participation" },
+      { t: "Identity Confirmation (Optional)", d: "For B&B hosts and leaders" },
+    ],
+    cta: "Verify My Account",
   },
   {
     key: "youth",
-    icon: "Baby",
-    tone: "sage",
+    icon: "Users",
+    overlay: "Lock",
+    overlayColor: "gold",
+    color: "navy",
     title: "Youth Safety & Privacy",
-    body: "Extra shelter for our young saints — parental controls, safe interaction limits, and gentle content guidelines built in from the start.",
-    cta: "Open youth controls",
+    sub: "Protect our youth and promote healthy, positive interactions.",
+    items: [
+      { t: "Parental Controls", d: "Manage youth account settings" },
+      { t: "Safe Interaction", d: "Filter messages and connections" },
+      { t: "Content Guidelines", d: "Faith-aligned content standards" },
+      { t: "Report & Support", d: "Report concerns confidentially" },
+    ],
+    cta: "Manage Youth Settings",
   },
   {
     key: "trust",
     icon: "Users",
-    tone: "accent",
+    overlay: "ShieldCheck",
+    overlayColor: "gold",
+    color: "gold",
     title: "Community Trust Indicators",
-    body: "See the strength of the gathering at a glance — verified members, trusted B&B hosts, and honest reputations you can rely on.",
-    cta: "View trust indicators",
+    sub: "Know who you're connecting with and the groups you join.",
+    items: [
+      { t: "Verified Members", d: "Look for the trusted badge" },
+      { t: "Verified B&B Hosts", d: "Background-checked hosts" },
+      { t: "Group Integrity", d: "Trusted by community leaders" },
+      { t: "Activity & Reputation", d: "Positive participation over time" },
+    ],
+    cta: "Learn About Trust",
   },
   {
     key: "signin",
-    icon: "KeyRound",
-    tone: "sage",
+    icon: "Lock",
+    color: "green",
     title: "Secure Sign-In & Recovery",
-    body: "Guard the door to your account with two-factor sign-in, a strong password, recovery options, and full control over your devices.",
-    cta: "Secure my account",
+    sub: "Keep your account secure and accessible at all times.",
+    items: [
+      { t: "Two-Factor Authentication", d: "Add an extra layer of security" },
+      { t: "Strong Passwords", d: "Create and update securely" },
+      { t: "Account Recovery", d: "Recover access if needed" },
+      { t: "Device Management", d: "Review and manage devices" },
+    ],
+    cta: "Security Settings",
   },
 ];
 
@@ -62,36 +98,60 @@ export function SecurityPillars() {
 
   return (
     <>
-      <div className="grid gap-5 sm:grid-cols-2">
-        {pillars.map((p, i) => (
-          <Reveal key={p.key} delay={i * 0.07}>
-            <Card hover className="flex h-full flex-col p-6">
-              <div className="flex items-center justify-between">
-                <span
-                  className={cn(
-                    "grid size-12 place-items-center rounded-xl",
-                    p.tone === "sage"
-                      ? "bg-sage-soft text-sage"
-                      : "bg-accent-soft text-accent-strong dark:text-accent",
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {pillars.map((p) => {
+          const color = COLORS[p.color];
+          return (
+            <article
+              key={p.key}
+              className="flex h-full flex-col rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface"
+            >
+              <div className="flex items-start gap-3">
+                <span className="relative mt-0.5 shrink-0" style={{ color }}>
+                  <Icon name={p.icon} size={40} strokeWidth={1.8} />
+                  {p.overlay && (
+                    <span
+                      className="absolute -bottom-1 -right-1.5 grid size-5 place-items-center rounded bg-white dark:bg-surface"
+                      style={{ color: COLORS[p.overlayColor ?? "gold"] }}
+                    >
+                      <Icon name={p.overlay} size={15} strokeWidth={2.2} />
+                    </span>
                   )}
-                >
-                  <Icon name={p.icon} size={24} />
                 </span>
+                <div>
+                  <h3 className="font-serif text-lg font-bold leading-snug text-ink">{p.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-muted">{p.sub}</p>
+                </div>
               </div>
-              <h3 className="mt-5 font-serif text-xl font-semibold text-ink">{p.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{p.body}</p>
-              <div className="mt-5">
-                <Button
-                  variant={p.tone === "sage" ? "sage" : "accent"}
-                  iconRight="ArrowRight"
-                  onClick={() => setOpen(p.key)}
-                >
-                  {p.cta}
-                </Button>
-              </div>
-            </Card>
-          </Reveal>
-        ))}
+
+              <ul className="mt-5 flex-1 space-y-3.5">
+                {p.items.map((it) => (
+                  <li key={it.t} className="flex items-start gap-2.5">
+                    <span
+                      className="mt-0.5 grid size-[18px] shrink-0 place-items-center rounded-full text-white"
+                      style={{ background: color }}
+                    >
+                      <Icon name="Check" size={11} strokeWidth={3} />
+                    </span>
+                    <div>
+                      <p className="text-[13px] font-bold leading-snug text-ink">{it.t}</p>
+                      <p className="text-xs leading-snug text-muted">{it.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <button
+                type="button"
+                onClick={() => setOpen(p.key)}
+                className="mt-5 w-fit rounded-md px-4 py-2 text-[13px] font-semibold text-white transition-all hover:brightness-110 active:scale-[0.98]"
+                style={{ background: color }}
+              >
+                {p.cta}
+              </button>
+            </article>
+          );
+        })}
       </div>
 
       <VerificationModal open={open === "verify"} onClose={() => setOpen(null)} />

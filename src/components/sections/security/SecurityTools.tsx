@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
 import { Badge } from "@/components/ui/Badge";
@@ -16,76 +15,102 @@ const activity = [
   { icon: "Mail", text: "Recovery email confirmed", time: "2 weeks ago", ok: true },
 ];
 
-const blocked = [
-  { name: "Anonymous account", note: "Repeated unsolicited messages" },
-  { name: "Spam listing", note: "Fraudulent B&B offer" },
-];
-
+/** Bottom row — "Additional Security Tools" strip + "Need Help?" support panel. */
 export function SecurityTools() {
   const { pushToast } = useAppData();
-  const [modal, setModal] = useState<"activity" | "blocked" | null>(null);
-  const [blockedList, setBlockedList] = useState(blocked);
+  const [modal, setModal] = useState<"activity" | "support" | null>(null);
+  const [topic, setTopic] = useState("A safety concern");
+  const [message, setMessage] = useState("");
 
   const tools = [
     {
-      key: "activity",
-      icon: "ScrollText",
-      title: "Activity Log",
-      body: "Review every sign-in and security event on your account.",
+      icon: "Bell",
+      title: "Login Alerts",
+      body: "Get notified of new sign-ins.",
       onClick: () => setModal("activity"),
     },
     {
-      key: "blocked",
-      icon: "ShieldAlert",
-      title: "Blocked Users",
-      body: "Manage members and listings you've chosen to block.",
-      onClick: () => setModal("blocked"),
+      icon: "MonitorSmartphone",
+      title: "Session Management",
+      body: "See and manage your active sessions.",
+      onClick: () => pushToast("1 active session — iPhone 15 · Orem, UT. All healthy.", "success"),
     },
     {
-      key: "export",
-      icon: "Download",
-      title: "Data & Privacy Export",
-      body: "Request a copy of everything the gathering holds about you.",
+      icon: "ShieldCheck",
+      title: "Privacy Center",
+      body: "Control your data and privacy preferences.",
       onClick: () => pushToast("Your data export is being prepared — we'll email a secure link.", "accent"),
     },
     {
-      key: "lock",
-      icon: "Lock",
-      title: "App Lock",
-      body: "Require Face ID or a passcode each time you open the app.",
-      onClick: () => pushToast("App Lock enabled — Face ID will be required on next launch.", "success"),
+      icon: "LifeBuoy",
+      title: "Help & Support",
+      body: "Get help from our support team.",
+      onClick: () => setModal("support"),
     },
   ];
 
   return (
     <>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {tools.map((t, i) => (
-          <Reveal key={t.key} delay={i * 0.06}>
+      <div className="grid gap-4 lg:grid-cols-[1.9fr_1fr]">
+        {/* Additional Security Tools */}
+        <div className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+          <h2 className="font-serif text-xl font-bold text-ink">Additional Security Tools</h2>
+          <p className="mt-1 text-xs text-muted">More ways we help keep you and our community safe.</p>
+          <div className="mt-5 grid grid-cols-2 gap-y-5 sm:grid-cols-4">
+            {tools.map((t, i) => (
+              <button
+                key={t.title}
+                type="button"
+                onClick={t.onClick}
+                className={cn(
+                  "group flex items-start gap-3 px-3 text-left transition-colors first:pl-0",
+                  i > 0 && "sm:border-l sm:border-border",
+                )}
+              >
+                <span className="mt-0.5 shrink-0 text-ink transition-colors group-hover:text-accent-strong dark:group-hover:text-accent">
+                  <Icon name={t.icon} size={26} strokeWidth={1.6} />
+                </span>
+                <span>
+                  <span className="block text-[13px] font-bold leading-snug text-ink">{t.title}</span>
+                  <span className="mt-0.5 block text-xs leading-snug text-muted">{t.body}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Need Help? */}
+        <div className="relative overflow-hidden rounded-xl border border-border bg-[#fbf3e2] shadow-sm dark:bg-surface-2">
+          {/* the exact support-agent photo from the reference */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/security-support.jpg"
+            alt=""
+            className="absolute inset-y-0 right-0 h-full w-[52%] object-cover"
+            style={{ maskImage: "linear-gradient(90deg, transparent, black 32%)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 32%)" }}
+          />
+          <div className="relative z-[1] max-w-[58%] p-5">
+            <h3 className="font-serif text-lg font-bold text-ink">Need Help?</h3>
+            <p className="mt-1 text-xs leading-relaxed text-ink-soft">
+              Our support team is here to help you.
+            </p>
             <button
               type="button"
-              onClick={t.onClick}
-              className="group flex h-full w-full flex-col rounded-2xl border border-border bg-surface p-5 text-left shadow-sm card-hover focus-visible:outline-2"
+              onClick={() => setModal("support")}
+              className="mt-4 rounded-md bg-[#b8892b] px-4 py-2 text-[13px] font-semibold text-white transition-all hover:brightness-110 active:scale-[0.98]"
             >
-              <span className="grid size-10 place-items-center rounded-xl bg-surface-3 text-ink-soft transition-colors group-hover:bg-accent-soft group-hover:text-accent-strong dark:group-hover:text-accent">
-                <Icon name={t.icon} size={20} />
-              </span>
-              <p className="mt-4 text-sm font-semibold text-ink">{t.title}</p>
-              <p className="mt-1 flex-1 text-xs leading-relaxed text-muted">{t.body}</p>
-              <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-accent-strong dark:text-accent">
-                Open
-                <Icon name="ArrowRight" size={13} className="transition-transform group-hover:translate-x-0.5" />
-              </span>
+              Contact Support
             </button>
-          </Reveal>
-        ))}
+          </div>
+        </div>
       </div>
 
+      {/* Login alerts / activity */}
       <Modal
         open={modal === "activity"}
         onClose={() => setModal(null)}
-        title="Activity Log"
-        description="Recent security events on your account."
+        title="Login Alerts"
+        description="Recent sign-ins and security events on your account."
         size="md"
       >
         <ul className="space-y-2">
@@ -112,44 +137,68 @@ export function SecurityTools() {
         </ul>
       </Modal>
 
+      {/* Contact support */}
       <Modal
-        open={modal === "blocked"}
+        open={modal === "support"}
         onClose={() => setModal(null)}
-        title="Blocked Users"
-        description="Accounts and listings you've blocked from reaching you."
+        title="Contact Support"
+        description="Tell us what's on your heart. We'll reply within a day."
         size="md"
+        footer={
+          <>
+            <Button variant="ghost" onClick={() => setModal(null)}>
+              Cancel
+            </Button>
+            <Button
+              variant="accent"
+              icon="Send"
+              onClick={() => {
+                setModal(null);
+                setMessage("");
+                pushToast("Support request sent — we'll reply within a day.", "success");
+              }}
+            >
+              Send request
+            </Button>
+          </>
+        }
       >
-        {blockedList.length === 0 ? (
-          <div className="rounded-xl border border-dashed border-border px-4 py-8 text-center">
-            <Icon name="ShieldCheck" size={24} className="mx-auto text-sage" />
-            <p className="mt-2 text-sm font-medium text-ink">Nothing blocked</p>
-            <p className="mt-1 text-xs text-muted">Your gathering is clear.</p>
+        <div className="space-y-4">
+          <div>
+            <label htmlFor="support-topic" className="text-sm font-semibold text-ink">
+              Topic
+            </label>
+            <select
+              id="support-topic"
+              value={topic}
+              onChange={(e) => setTopic(e.target.value)}
+              className="mt-1.5 w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-ink focus-visible:outline-2"
+            >
+              <option>A safety concern</option>
+              <option>Account & sign-in help</option>
+              <option>Privacy & my data</option>
+              <option>Report a member or listing</option>
+              <option>Something else</option>
+            </select>
           </div>
-        ) : (
-          <ul className="space-y-2">
-            {blockedList.map((b, i) => (
-              <li
-                key={i}
-                className="flex items-center justify-between gap-3 rounded-xl border border-border bg-surface-2/50 px-4 py-3"
-              >
-                <div>
-                  <p className="text-sm font-medium text-ink">{b.name}</p>
-                  <p className="text-xs text-muted">{b.note}</p>
-                </div>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => {
-                    setBlockedList((prev) => prev.filter((x) => x.name !== b.name));
-                    pushToast(`Unblocked ${b.name}.`, "default");
-                  }}
-                >
-                  Unblock
-                </Button>
-              </li>
-            ))}
-          </ul>
-        )}
+          <div>
+            <label htmlFor="support-message" className="text-sm font-semibold text-ink">
+              Your message
+            </label>
+            <textarea
+              id="support-message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              rows={5}
+              placeholder="Share as much or as little as you'd like…"
+              className="mt-1.5 w-full resize-none rounded-lg border border-border bg-surface px-3 py-2 text-sm text-ink placeholder:text-faint focus-visible:outline-2"
+            />
+          </div>
+          <p className="flex items-start gap-2 rounded-xl border border-border bg-surface-2/50 px-3 py-2.5 text-xs leading-relaxed text-muted">
+            <Icon name="Lock" size={13} className="mt-0.5 shrink-0" />
+            Your message is private and handled by a trusted member of our support team.
+          </p>
+        </div>
       </Modal>
     </>
   );

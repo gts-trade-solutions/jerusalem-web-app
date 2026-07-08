@@ -1,15 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ribbons } from "@/data/scriptures";
-import { SectionHero } from "@/components/ui/SectionHero";
 import { SubTabs, type TabDef } from "@/components/ui/SubTabs";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { ScriptureRibbon } from "@/components/ScriptureRibbon";
-import { MusicAndWorship } from "./MusicAndWorship";
+import { MusicDashboard } from "./MusicDashboard";
 import { ChoirsAndEnsembles } from "./ChoirsAndEnsembles";
 import { YouthMusic } from "./YouthMusic";
 import { WorshipEvents } from "./WorshipEvents";
@@ -23,67 +17,73 @@ const TABS: TabDef[] = [
   { id: "mine", label: "My Music", icon: "ListMusic" },
 ];
 
+const REFS = [
+  "D&C 136:28", "D&C 25:12", "2 Chronicles 29:30", "2 Samuel 6:5", "1 Chronicles 25:3",
+  "Mormon 7:7", "1 Samuel 16:23", "1 Chronicles 25:6", "Ezekiel 40:44", "Psalm 96:1",
+  "Isaiah 42:10", "Psalm 147:7",
+];
+
+function NoteFlourish({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 120 24" fill="#c9a13b" className={className} aria-hidden>
+      <path d="M8 6 H72 V8 H8 Z" opacity="0.5" />
+      <circle cx="20" cy="16" r="3.2" /><rect x="22.4" y="5" width="1.4" height="11" />
+      <circle cx="40" cy="18" r="3.2" /><rect x="42.4" y="6" width="1.4" height="12" />
+      <circle cx="60" cy="15" r="3.2" /><rect x="62.4" y="4" width="1.4" height="11" />
+      <path d="M23 5 Q 33 2 43 6 L43 8 Q 33 4 23 7 Z" />
+    </svg>
+  );
+}
+
 export function MusicSection() {
   const [active, setActive] = useState("worship");
-  const reduce = useReducedMotion();
 
   return (
     <>
-      <SectionHero
-        eyebrow="Worshipping Christ Through Music"
-        image="hero-music"
-        align="left"
-        title="The song of the righteous is a prayer unto Him"
-        subtitle="Sacred hymns, gathered choirs, and the young voices of Zion — lift your heart in worship and let the music of the Restoration draw you nearer to Christ. Press play, join a choir, and sing along with Saints across the world."
-        verse={ribbons.music.featured}
-        icon="Music"
-      >
-        <a href="#music-tabs">
-          <Button size="lg" variant="accent" icon="Play">
-            Listen &amp; Worship
-          </Button>
-        </a>
-        <Link href="/events">
-          <Button
-            size="lg"
-            variant="outline"
+      {/* Hero — the exact reference banner */}
+      <section className="border-b border-border bg-white dark:bg-bg">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/mu-hero.jpg" alt="Worshipping Christ Through Music — unite hearts, lift voices, glorify the Lord" className="w-full select-none" width={1280} height={188} />
+      </section>
 
-            iconRight="ArrowRight"
-          >
-            Worship Nights Near You
-          </Button>
-        </Link>
-      </SectionHero>
+      {/* Sub-tabs */}
+      <div className="sticky top-[4.6rem] z-30 -mt-px">
+        <SubTabs tabs={TABS} active={active} onChange={setActive} accent="gold" />
+      </div>
 
-      <section id="music-tabs" className="scroll-mt-24 py-14 pb-28 sm:py-20 sm:pb-32">
-        <Container>
-          <div className="sticky top-2 z-20 mx-auto max-w-3xl">
-            <SubTabs tabs={TABS} active={active} onChange={setActive} />
-          </div>
-
-          <div className="mt-10">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                role="tabpanel"
-                id={`panel-${active}`}
-                initial={reduce ? { opacity: 0 } : { opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={reduce ? { opacity: 0 } : { opacity: 0, y: -10 }}
-                transition={{ duration: 0.4, ease: [0.22, 0.7, 0.2, 1] }}
-              >
-                {active === "worship" && <MusicAndWorship />}
-                {active === "choirs" && <ChoirsAndEnsembles />}
-                {active === "youth" && <YouthMusic />}
-                {active === "events" && <WorshipEvents />}
-                {active === "mine" && <MyMusic />}
-              </motion.div>
-            </AnimatePresence>
+      <section className="bg-bg-tint py-8">
+        <Container size="wide">
+          <div key={active} className="animate-concept-in">
+            {active === "worship" && <MusicDashboard />}
+            {active === "choirs" && <ChoirsAndEnsembles />}
+            {active === "youth" && <YouthMusic />}
+            {active === "events" && <WorshipEvents />}
+            {active === "mine" && <MyMusic />}
           </div>
         </Container>
       </section>
 
-      <ScriptureRibbon page="music" />
+      {/* Song of the righteous ribbon */}
+      <section className="bg-ink-900 text-white" aria-label="Scripture references">
+        <Container className="py-6 text-center">
+          <div className="flex items-center justify-center gap-4">
+            <NoteFlourish className="hidden h-5 w-24 sm:block" />
+            <p className="font-serif text-lg italic text-[#f3e9cf] sm:text-xl">
+              &ldquo;Sing unto the Lord; bless his name; shew forth his salvation from day to day.&rdquo;
+              <span className="not-italic font-semibold text-white"> — Psalm 96:2</span>
+            </p>
+            <NoteFlourish className="hidden h-5 w-24 -scale-x-100 sm:block" />
+          </div>
+          <div className="mx-auto mt-4 flex max-w-5xl flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-white/85">
+            {REFS.map((r, i) => (
+              <span key={r} className="inline-flex items-center gap-3">
+                {i > 0 && <span className="text-white/30">|</span>}
+                <span className="font-medium transition-colors hover:text-[#e6c164]">{r}</span>
+              </span>
+            ))}
+          </div>
+        </Container>
+      </section>
     </>
   );
 }

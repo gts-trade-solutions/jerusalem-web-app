@@ -107,6 +107,25 @@ export function SpireSilhouette({ className, flip = false }: { className?: strin
   );
 }
 
+/**
+ * Cloud clipping-mask edge — a row of soft cloud puffs, filled with the page
+ * background, that sits at the bottom of a hero so the banner reads as clipped
+ * into a cloud shape (as in the client's Home banner).
+ */
+export function CloudEdge({ className, fill = "var(--bg)" }: { className?: string; fill?: string }) {
+  const bumps = Array.from({ length: 24 }, () => "a 25 17 0 0 1 50 0").join(" ");
+  return (
+    <svg
+      className={cn("pointer-events-none absolute inset-x-0 bottom-0 z-[2] block w-full", className)}
+      viewBox="0 0 1200 46"
+      preserveAspectRatio="none"
+      aria-hidden
+    >
+      <path d={`M0 46 V26 ${bumps} V46 Z`} fill={fill} />
+    </svg>
+  );
+}
+
 /** Thin gold line-art of a temple city skyline — for the navy footer band. */
 export function SkylineArt({ className }: { className?: string }) {
   return (

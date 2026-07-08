@@ -1,56 +1,44 @@
-import { Reveal } from "@/components/ui/Reveal";
 import { Icon } from "@/components/Icon";
-import { cn } from "@/lib/cn";
 
 const values = [
   {
     icon: "ShieldCheck",
     title: "Faith-Aligned Security",
-    body: "Protection rooted in covenant values — safeguarding the sacred trust of a gathered people.",
-    tone: "accent",
+    body: "Built on values of trust, respect, and Christlike love.",
   },
   {
     icon: "Users",
     title: "Community Protection",
-    body: "Verified members and watchful care so every soul can gather without fear.",
-    tone: "sage",
+    body: "Tools that help keep our community safe and welcoming.",
   },
   {
     icon: "Lock",
     title: "Privacy by Design",
-    body: "Your story is yours. We collect little, guard it closely, and never sell it.",
-    tone: "accent",
+    body: "Your data is protected and never shared without consent.",
   },
   {
-    icon: "Eye",
+    icon: "CheckCircle2",
     title: "Transparency First",
-    body: "Plain answers, clear controls, and an honest account of how your data is used.",
-    tone: "sage",
+    body: "Clear policies, honest practices, and open communication.",
   },
 ] as const;
 
 export function ValueRow() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid overflow-hidden rounded-xl border border-border bg-white shadow-sm sm:grid-cols-2 lg:grid-cols-4 dark:bg-surface">
       {values.map((v, i) => (
-        <Reveal key={v.title} delay={i * 0.06}>
-          <div className="flex h-full items-start gap-3 rounded-2xl border border-border bg-surface p-5 shadow-sm card-hover">
-            <span
-              className={cn(
-                "grid size-10 shrink-0 place-items-center rounded-xl",
-                v.tone === "sage"
-                  ? "bg-sage-soft text-sage"
-                  : "bg-accent-soft text-accent-strong dark:text-accent",
-              )}
-            >
-              <Icon name={v.icon} size={20} />
-            </span>
-            <div>
-              <p className="text-sm font-semibold text-ink">{v.title}</p>
-              <p className="mt-1 text-xs leading-relaxed text-muted">{v.body}</p>
-            </div>
+        <div
+          key={v.title}
+          className={`flex items-start gap-3.5 p-5 ${i > 0 ? "border-t border-border sm:border-t-0 sm:border-l" : ""}`}
+        >
+          <span className="mt-0.5 shrink-0 text-ink">
+            <Icon name={v.icon} size={30} strokeWidth={1.6} />
+          </span>
+          <div>
+            <p className="text-[15px] font-bold text-ink">{v.title}</p>
+            <p className="mt-1 text-xs leading-relaxed text-muted">{v.body}</p>
           </div>
-        </Reveal>
+        </div>
       ))}
     </div>
   );
