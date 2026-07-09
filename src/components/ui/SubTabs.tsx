@@ -44,7 +44,7 @@ export function SubTabs({
       role="tablist"
       aria-label="Section tabs"
       className={cn(
-        "no-scrollbar flex justify-start gap-1 overflow-x-auto border-b border-border bg-surface/95 px-2 backdrop-blur-sm sm:justify-center sm:gap-2",
+        "no-scrollbar flex justify-start gap-1 overflow-x-auto border-b border-border bg-surface/95 px-2 backdrop-blur-sm sm:justify-center sm:gap-1.5",
         className,
       )}
     >
@@ -60,7 +60,7 @@ export function SubTabs({
             onKeyDown={(e) => onKey(e, i)}
             onClick={() => onChange(t.id)}
             className={cn(
-              "relative flex shrink-0 items-center gap-2 whitespace-nowrap px-4 py-4 text-sm font-medium transition-colors",
+              "relative flex shrink-0 items-center gap-1.5 whitespace-nowrap px-3 py-3 text-[13px] font-medium transition-colors sm:px-3.5",
               selected ? activeText : "text-muted hover:text-ink",
             )}
           >

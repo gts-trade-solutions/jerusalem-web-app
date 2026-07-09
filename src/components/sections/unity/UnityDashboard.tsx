@@ -50,32 +50,32 @@ export function UnityDashboard() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Of One Mind + You're Invited */}
-      <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
-        <section className="rounded-xl border border-border bg-white p-6 shadow-sm dark:bg-surface">
+      <div className="grid gap-4 lg:grid-cols-[1.6fr_1fr]">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <h2 className="font-serif text-xl font-bold text-ink">Of One Mind and One Heart</h2>
           <p className="mt-1 max-w-md text-xs text-muted">We are stronger together. Join in fellowship, worship, service, and unity across the Restoration.</p>
-          <div className="mt-6 grid grid-cols-2 gap-5 sm:grid-cols-4">
+          <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {pillars.map((p) => (
               <div key={p.title} className="text-center">
-                <span className="mx-auto grid size-14 place-items-center rounded-full bg-accent-soft text-accent-strong dark:text-accent">
-                  <Icon name={p.icon} size={24} />
+                <span className="mx-auto grid size-12 place-items-center rounded-full bg-accent-soft text-accent-strong dark:text-accent">
+                  <Icon name={p.icon} size={22} />
                 </span>
-                <h3 className="mt-3 font-serif text-sm font-bold leading-snug text-ink">{p.title}</h3>
+                <h3 className="mt-2 font-serif text-sm font-bold leading-snug text-ink">{p.title}</h3>
                 <p className="mt-1 text-[11px] leading-snug text-muted">{p.body}</p>
               </div>
             ))}
           </div>
-          <p className="mt-6 text-center font-serif text-sm italic leading-snug text-muted">
+          <p className="mt-4 text-center font-serif text-sm italic leading-snug text-muted">
             &ldquo;And they continued steadfastly in the apostles&apos; doctrine and fellowship, and in breaking of bread, and in prayers.&rdquo; Acts 2:42
           </p>
         </section>
 
         <section className="overflow-hidden rounded-xl border border-border bg-white shadow-sm dark:bg-surface">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/un-invited.jpg" alt="" className="h-40 w-full object-cover" width={430} height={114} />
-          <div className="p-5 text-center">
+          <img src="/images/un-invited.jpg" alt="" className="h-32 w-full object-cover" width={430} height={114} />
+          <div className="p-4 text-center">
             <h3 className="font-serif text-lg font-bold text-ink">You&apos;re Invited!</h3>
             <p className="mt-1.5 text-xs leading-relaxed text-muted">Everyone is welcome to come, connect, and belong. There&apos;s a place for you here.</p>
             <button onClick={() => pushToast("Let's find your group.", "accent")} className="mt-4 inline-flex items-center gap-1.5 rounded-md bg-[#b8892b] px-4 py-2 text-xs font-semibold text-white transition-all hover:brightness-110">
@@ -86,7 +86,7 @@ export function UnityDashboard() {
       </div>
 
       {/* Upcoming Events + Livestream */}
-      <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+      <div className="grid gap-4 lg:grid-cols-[1.6fr_1fr]">
         <section>
           <div className="flex items-center justify-between">
             <h2 className="font-serif text-xl font-bold text-ink">Upcoming Events &amp; Gatherings</h2>
@@ -94,18 +94,18 @@ export function UnityDashboard() {
               View All Events <Icon name="ArrowRight" size={12} />
             </button>
           </div>
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-3 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {events.map((e) => (
               <article key={e.title} className="flex flex-col overflow-hidden rounded-xl border border-border bg-white shadow-sm dark:bg-surface">
                 <div className="relative">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={e.img} alt="" className="h-24 w-full object-cover" width={122} height={66} />
+                  <img src={e.img} alt="" className="h-20 w-full object-cover" width={122} height={66} />
                   <span className="absolute left-2 top-2 flex flex-col items-center rounded-md bg-white px-2 py-0.5 text-center shadow dark:bg-surface">
                     <span className="text-[9px] font-bold uppercase text-accent-strong dark:text-accent">{e.mon}</span>
                     <span className="font-serif text-sm font-bold leading-none text-ink">{e.day}</span>
                   </span>
                 </div>
-                <div className="flex flex-1 flex-col p-3">
+                <div className="flex flex-1 flex-col p-2.5">
                   <h3 className="font-serif text-sm font-bold leading-snug text-ink">{e.title}</h3>
                   <p className="mt-0.5 text-[11px] leading-snug text-muted">{e.sub}</p>
                   <p className="mt-1.5 text-[10px] text-faint">{e.when}</p>
@@ -129,9 +129,9 @@ export function UnityDashboard() {
               View Full Schedule <Icon name="ArrowRight" size={12} />
             </button>
           </div>
-          <ul className="mt-4 space-y-2.5">
+          <ul className="mt-3 space-y-2">
             {streams.map((s) => (
-              <li key={s.title} className="flex items-center gap-3 rounded-xl border border-border bg-white p-3 shadow-sm dark:bg-surface">
+              <li key={s.title} className="flex items-center gap-3 rounded-xl border border-border bg-white p-2.5 shadow-sm dark:bg-surface">
                 <span className="grid size-9 shrink-0 place-items-center rounded-full bg-accent-soft text-accent-strong dark:text-accent">
                   <Icon name={s.icon} size={16} />
                 </span>
@@ -154,7 +154,7 @@ export function UnityDashboard() {
           <article key={c.title} className="relative overflow-hidden rounded-xl border border-border bg-bg-tint shadow-sm">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={c.img} alt="" className="absolute inset-y-0 right-0 h-full w-[36%] object-cover" style={{ maskImage: "linear-gradient(90deg, transparent, black 40%)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 40%)" }} />
-            <div className="relative z-[1] max-w-[66%] p-4">
+            <div className="relative z-[1] max-w-[68%] p-3.5">
               <div className="flex items-center gap-2">
                 <span className={c.tint}><Icon name={c.icon} size={22} /></span>
                 <h3 className="font-serif text-sm font-bold leading-snug text-ink">{c.title}</h3>

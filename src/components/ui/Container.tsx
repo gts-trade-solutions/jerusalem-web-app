@@ -14,7 +14,7 @@ export function Container({
     default: "max-w-6xl",
     wide: "max-w-7xl",
   }[size];
-  return <div className={cn("mx-auto w-full px-4 sm:px-6 lg:px-8", max, className)}>{children}</div>;
+  return <div className={cn("mx-auto w-full min-w-0 px-4 sm:px-6 lg:px-8", max, className)}>{children}</div>;
 }
 
 export function SectionLabel({ children, icon }: { children: React.ReactNode; icon?: React.ReactNode }) {

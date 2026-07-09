@@ -67,10 +67,10 @@ export function MusicDashboard() {
     play({ id: a.id, kind: "album", title: a.title, subtitle: "New Jerusalem Choir", cover: a.img.replace("/images/", "").replace(".jpg", ""), durationSec: 272 });
 
   return (
-    <div className="grid gap-6 lg:grid-cols-3">
+    <div className="grid gap-4 lg:grid-cols-3">
       {/* ── Column 1 — Sacred Worship Music ─────────────── */}
-      <div className="space-y-5">
-        <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+      <div className="space-y-4">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex items-start justify-between gap-2">
             <div>
               <h2 className="font-serif text-lg font-bold text-ink">Sacred Worship Music</h2>
@@ -79,7 +79,7 @@ export function MusicDashboard() {
             <button onClick={() => pushToast("Browsing all sacred music…", "accent")} className="shrink-0 rounded-md border border-border px-2.5 py-1 text-[11px] font-semibold text-ink hover:bg-surface-2">View All Music</button>
           </div>
 
-          <div className="mt-4 grid grid-cols-4 gap-2.5">
+          <div className="mt-3 grid grid-cols-4 gap-2.5">
             {albums.map((a) => (
               <button key={a.id} onClick={() => playAlbum(a)} className="group text-left">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -91,7 +91,7 @@ export function MusicDashboard() {
           </div>
 
           {/* now playing */}
-          <div className="mt-4 flex items-center gap-3 rounded-lg border border-border bg-surface-2/50 p-2.5">
+          <div className="mt-3 flex items-center gap-3 rounded-lg border border-border bg-surface-2/50 p-2.5">
             <PhotoBlock seed="cathedral-arches" w={80} h={80} icon="Music" overlay="sage" rounded="rounded-md" className="size-11 shrink-0" />
             <div className="min-w-0 flex-1">
               <p className="truncate text-xs font-bold text-ink">{nowTitle}</p>
@@ -112,7 +112,7 @@ export function MusicDashboard() {
         </section>
 
         {/* Worship Resources */}
-        <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex items-center gap-2.5">
             <span className="text-accent-strong dark:text-accent"><Icon name="Music" size={22} /></span>
             <div>
@@ -120,7 +120,7 @@ export function MusicDashboard() {
               <p className="text-[11px] text-muted">Tools to help you worship and serve.</p>
             </div>
           </div>
-          <div className="mt-4 grid grid-cols-3 gap-y-4 sm:grid-cols-6">
+          <div className="mt-3 grid grid-cols-3 gap-y-3 sm:grid-cols-6">
             {resources.map((r) => (
               <button key={r.label} onClick={() => pushToast(`${r.label} opened.`, "accent")} className="flex flex-col items-center gap-1.5 text-center">
                 <Icon name={r.icon} size={22} className="text-ink" />
@@ -143,7 +143,7 @@ export function MusicDashboard() {
               </div>
             ))}
           </div>
-          <div className="mt-4 flex items-center justify-between gap-3 border-t border-border pt-3">
+          <div className="mt-3 flex items-center justify-between gap-3 border-t border-border pt-3">
             <div className="flex items-center gap-2.5">
               <Icon name="Mail" size={20} className="text-accent-strong dark:text-accent" />
               <div>
@@ -158,7 +158,7 @@ export function MusicDashboard() {
 
       {/* ── Column 2 — Choir Gatherings ─────────────────── */}
       <div>
-        <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex items-start justify-between gap-2">
             <div>
               <h2 className="font-serif text-lg font-bold text-ink">Choir Gatherings</h2>
@@ -166,7 +166,7 @@ export function MusicDashboard() {
             </div>
             <button onClick={() => pushToast("Browsing all choirs…", "accent")} className="shrink-0 rounded-md border border-border px-2.5 py-1 text-[11px] font-semibold text-ink hover:bg-surface-2">View All Choirs</button>
           </div>
-          <ul className="mt-4 space-y-4">
+          <ul className="mt-3 space-y-3">
             {choirs.map((c) => {
               const on = joined.has(c.title);
               return (
@@ -193,8 +193,8 @@ export function MusicDashboard() {
       </div>
 
       {/* ── Column 3 — Youth Music + Worship Nights + Share ── */}
-      <div className="space-y-5">
-        <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+      <div className="space-y-4">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex items-start justify-between gap-2">
             <div>
               <h2 className="font-serif text-lg font-bold text-ink">Youth Music &amp; Original Restoration Music</h2>
@@ -202,7 +202,7 @@ export function MusicDashboard() {
             </div>
             <button onClick={() => pushToast("Browsing all youth music…", "accent")} className="shrink-0 rounded-md border border-border px-2.5 py-1 text-[11px] font-semibold text-ink hover:bg-surface-2">View All</button>
           </div>
-          <div className="mt-4 grid grid-cols-3 gap-2.5">
+          <div className="mt-3 grid grid-cols-3 gap-2.5">
             {videos.map((v) => (
               <button key={v.title} onClick={() => setVideo(v)} className="group text-left">
                 <span className="relative block overflow-hidden rounded-md">
@@ -217,7 +217,7 @@ export function MusicDashboard() {
           </div>
         </section>
 
-        <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex items-start justify-between gap-2">
             <div>
               <h3 className="font-serif text-base font-bold text-ink">Virtual Choirs &amp; Worship Nights</h3>
@@ -225,7 +225,7 @@ export function MusicDashboard() {
             </div>
             <button onClick={() => pushToast("All worship events…", "accent")} className="shrink-0 rounded-md border border-border px-2.5 py-1 text-[11px] font-semibold text-ink hover:bg-surface-2">View All Events</button>
           </div>
-          <ul className="mt-4 space-y-3">
+          <ul className="mt-3 space-y-2.5">
             {worshipNights.map((w) => {
               const on = going.has(w.title);
               return (
@@ -256,7 +256,7 @@ export function MusicDashboard() {
         <section className="relative overflow-hidden rounded-xl border border-border bg-white shadow-sm dark:bg-surface">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/mu-piano.jpg" alt="" className="absolute inset-y-0 right-0 h-full w-[34%] object-cover" style={{ maskImage: "linear-gradient(90deg, transparent, black 40%)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 40%)" }} />
-          <div className="relative z-[1] max-w-[68%] p-4">
+          <div className="relative z-[1] max-w-[68%] p-3.5">
             <div className="flex items-center gap-2">
               <span className="text-accent-strong dark:text-accent"><Icon name="Music2" size={20} /></span>
               <h3 className="font-serif text-sm font-bold text-ink">Share Your Music</h3>

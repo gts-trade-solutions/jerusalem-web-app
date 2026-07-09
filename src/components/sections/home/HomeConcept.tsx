@@ -51,14 +51,15 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
   const titleColor = c.accent === "gold" ? "text-ink" : "text-[#241d12] dark:text-ink";
   const rule = c.accent === "gold" ? "bg-[#c9a13b]/80" : "bg-[#c9a13b]/70";
   const dotOn = c.accent === "gold" ? "bg-accent" : "bg-teal";
+  const welfare = c.layout === "welfare6";
 
   return (
     <div className="bg-white dark:bg-bg">
       {/* ── Hero ─────────────────────────────────────────── */}
       <section>
-        <div className="mx-auto grid max-w-[1400px] items-center gap-6 pl-4 sm:pl-6 lg:grid-cols-[1fr_1.35fr] lg:gap-6 lg:pl-10">
-          <div className="pr-4 pt-8 sm:pr-6 lg:py-8 lg:pr-0">
-            <h1 className={`whitespace-pre-line font-serif text-5xl font-bold leading-[1.02] tracking-tight lg:text-[3.5rem] ${titleColor}`}>
+        <div className={`mx-auto grid max-w-[1400px] min-w-0 gap-6 pl-4 sm:pl-6 lg:grid-cols-[1fr_1.35fr] lg:gap-6 lg:pl-10 ${welfare ? "items-start" : "items-center"}`}>
+          <div className={`min-w-0 pr-4 sm:pr-6 lg:pr-0 ${welfare ? "pt-5 lg:pt-5" : "pt-8 lg:py-8"}`}>
+            <h1 className={`whitespace-pre-line break-words font-serif text-4xl font-bold leading-[1.02] tracking-tight sm:text-5xl lg:text-[3.5rem] ${titleColor}`}>
               {c.title}
             </h1>
             {c.accentLine && (
@@ -66,7 +67,7 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
                 {c.accentLine}
               </p>
             )}
-            <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink">{c.paragraph}</p>
+            <p className="mt-5 max-w-md break-words text-[15px] leading-relaxed text-ink">{c.paragraph}</p>
 
             {nav && (
               <div className="mt-7 flex items-center gap-2.5" role="tablist" aria-label="Home themes">
@@ -88,12 +89,12 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
             )}
           </div>
 
-          <div className="relative">
+          <div className="relative min-w-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={c.heroImage}
               alt=""
-              className="w-full select-none rounded-l-xl object-cover lg:rounded-xl"
+              className={`w-full select-none rounded-l-xl object-cover lg:rounded-xl ${welfare ? "h-[15.5rem] sm:h-[17.25rem] lg:h-[17.5rem]" : ""}`}
               width={640}
               height={390}
             />
@@ -112,9 +113,9 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
 
       {/* ── Cards ────────────────────────────────────────── */}
       <section className="pb-8 pt-6">
-        <div className="flex items-center gap-5 px-6 sm:px-10">
+        <div className="flex min-w-0 items-center gap-3 px-4 sm:gap-5 sm:px-10">
           <span className={`h-px flex-1 ${rule}`} aria-hidden />
-          <h2 className="text-center font-serif text-2xl font-bold text-ink sm:text-3xl">{c.sectionTitle}</h2>
+          <h2 className="min-w-0 max-w-[82vw] text-center font-serif text-2xl font-bold text-ink text-balance sm:text-3xl">{c.sectionTitle}</h2>
           <span className={`h-px flex-1 ${rule}`} aria-hidden />
         </div>
 
@@ -122,13 +123,13 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
           {c.layout === "welfare6" ? (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {c.cards.map((card) => (
-                <article key={card.title} className="flex items-start gap-4 rounded-xl border border-border bg-white p-4 transition-shadow hover:shadow-md dark:bg-surface">
+                <article key={card.title} className="flex min-w-0 items-start gap-4 rounded-xl border border-border bg-white p-4 transition-shadow hover:shadow-md dark:bg-surface">
                   <span className="grid size-16 shrink-0 place-items-center rounded-full bg-accent-soft text-accent-strong dark:text-accent">
                     <Icon name={card.icon} size={30} strokeWidth={1.9} />
                   </span>
                   <div className="min-w-0">
-                    <h3 className="font-serif text-lg font-bold leading-snug text-ink">{card.title}</h3>
-                    <p className="mt-1 text-[13px] leading-relaxed text-ink-soft">{card.body}</p>
+                    <h3 className="break-words font-serif text-lg font-bold leading-snug text-ink">{card.title}</h3>
+                    <p className="mt-1 break-words text-[13px] leading-relaxed text-ink-soft">{card.body}</p>
                     <span className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#1d4ed8] dark:text-[#7ea4f5]">
                       Learn More <Icon name="ArrowRight" size={14} />
                     </span>
@@ -139,14 +140,14 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
           ) : (
             <div className="grid gap-5 md:grid-cols-3">
               {c.cards.map((card) => (
-                <article key={card.title} className="flex flex-col overflow-hidden rounded-xl border border-border bg-white shadow-sm transition-shadow hover:shadow-md dark:bg-surface">
+                <article key={card.title} className="flex min-w-0 flex-col overflow-hidden rounded-xl border border-border bg-white shadow-sm transition-shadow hover:shadow-md dark:bg-surface">
                   <div className="flex items-start gap-3.5 p-5">
                     <span className="grid size-14 shrink-0 place-items-center rounded-full text-white" style={{ background: CIRCLE[card.iconBg] }}>
                       <Icon name={card.icon} size={26} strokeWidth={1.9} />
                     </span>
-                    <div>
-                      <h3 className="font-serif text-lg font-bold leading-snug text-ink">{card.title}</h3>
-                      <p className="mt-1.5 text-[13px] leading-relaxed text-ink-soft">{card.body}</p>
+                    <div className="min-w-0">
+                      <h3 className="break-words font-serif text-lg font-bold leading-snug text-ink">{card.title}</h3>
+                      <p className="mt-1.5 break-words text-[13px] leading-relaxed text-ink-soft">{card.body}</p>
                       <span className="mt-2.5 inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink">
                         Learn More <Icon name="ArrowRight" size={14} />
                       </span>
@@ -193,8 +194,6 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
         </Container>
       </section>
 
-      {infoBar}
-
       {/* ── Scripture ribbon ────────────────────────────── */}
       <section
         className={`relative overflow-hidden text-white ${RIBBON_BG[c.ribbon.bg]} ${c.ribbon.deco === "skyline" ? "border-t-2 border-[#c9a13b]" : ""}`}
@@ -232,6 +231,8 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
           </div>
         </Container>
       </section>
+
+      {infoBar}
     </div>
   );
 }

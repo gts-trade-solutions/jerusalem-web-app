@@ -45,10 +45,10 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="flex min-h-full flex-col bg-bg">
+      <body className="flex min-h-full min-w-0 flex-col overflow-x-hidden bg-bg">
         <Providers>
           <TopNav />
-          <main className="flex-1">{children}</main>
+          <main className="min-w-0 flex-1 overflow-x-hidden pb-[calc(4rem+env(safe-area-inset-bottom))] lg:pb-0">{children}</main>
           <Footer />
           <MediaPlayer />
           <MobileNav />

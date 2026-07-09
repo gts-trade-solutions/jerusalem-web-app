@@ -53,10 +53,10 @@ export function SecurityTools() {
     <>
       <div className="grid gap-4 lg:grid-cols-[1.9fr_1fr]">
         {/* Additional Security Tools */}
-        <div className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+        <div className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <h2 className="font-serif text-xl font-bold text-ink">Additional Security Tools</h2>
           <p className="mt-1 text-xs text-muted">More ways we help keep you and our community safe.</p>
-          <div className="mt-5 grid grid-cols-2 gap-y-5 sm:grid-cols-4">
+          <div className="mt-4 grid grid-cols-2 gap-y-4 sm:grid-cols-4">
             {tools.map((t, i) => (
               <button
                 key={t.title}
@@ -89,7 +89,7 @@ export function SecurityTools() {
             className="absolute inset-y-0 right-0 h-full w-[52%] object-cover"
             style={{ maskImage: "linear-gradient(90deg, transparent, black 32%)", WebkitMaskImage: "linear-gradient(90deg, transparent, black 32%)" }}
           />
-          <div className="relative z-[1] max-w-[58%] p-5">
+          <div className="relative z-[1] max-w-[58%] p-4">
             <h3 className="font-serif text-lg font-bold text-ink">Need Help?</h3>
             <p className="mt-1 text-xs leading-relaxed text-ink-soft">
               Our support team is here to help you.

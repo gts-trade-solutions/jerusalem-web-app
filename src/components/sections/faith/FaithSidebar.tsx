@@ -26,7 +26,7 @@ export function FaithSidebar() {
   const [active, setActive] = useState(0);
 
   return (
-    <aside className="space-y-5 lg:sticky lg:top-24">
+    <aside className="space-y-4 lg:sticky lg:top-24">
       <nav className="rounded-xl border border-border bg-white p-3 shadow-sm dark:bg-surface" aria-label="Explore & Share">
         <p className="px-2 pb-2 text-[10px] font-bold uppercase tracking-wide text-faint">Explore &amp; Share</p>
         <ul className="space-y-0.5">
@@ -35,7 +35,7 @@ export function FaithSidebar() {
               <button
                 onClick={() => { setActive(i); pushToast(`${e.label}`, "accent"); }}
                 className={cn(
-                  "flex w-full items-center gap-2.5 rounded-md border-l-2 px-2.5 py-2 text-left text-xs font-medium transition-colors",
+                  "flex w-full items-center gap-2.5 rounded-md border-l-2 px-2.5 py-1.5 text-left text-xs font-medium transition-colors",
                   i === active
                     ? "border-accent bg-accent-soft text-accent-strong dark:text-accent"
                     : "border-transparent text-ink-soft hover:bg-surface-2",
@@ -53,7 +53,7 @@ export function FaithSidebar() {
             <li key={q.label}>
               <button
                 onClick={() => pushToast(`${q.label}…`, "accent")}
-                className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-xs font-medium text-ink-soft transition-colors hover:bg-surface-2 hover:text-accent-strong dark:hover:text-accent"
+                className="flex w-full items-center gap-2.5 rounded-md px-2.5 py-1.5 text-left text-xs font-medium text-ink-soft transition-colors hover:bg-surface-2 hover:text-accent-strong dark:hover:text-accent"
               >
                 <Icon name={q.icon} size={16} className="shrink-0 text-[#1d4ed8] dark:text-[#7ea4f5]" /> {q.label}
               </button>
@@ -62,7 +62,7 @@ export function FaithSidebar() {
         </ul>
       </nav>
 
-      <div className="relative overflow-hidden rounded-xl border border-border bg-bg-tint p-4">
+      <div className="relative overflow-hidden rounded-xl border border-border bg-bg-tint p-3.5">
         <blockquote className="font-serif text-xs italic leading-relaxed text-ink-soft">
           &ldquo;Be ready always to give an answer to every man that asketh you a reason of the hope that is in you.&rdquo;
         </blockquote>

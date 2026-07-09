@@ -49,18 +49,18 @@ export function TopNav() {
           style={{ scaleX: scrollYProgress }}
           aria-hidden
         />
-        <div className="mx-auto flex h-[4.9rem] max-w-[1440px] items-stretch gap-4 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-[4.9rem] w-full max-w-[1440px] min-w-0 items-stretch gap-3 px-3 sm:px-5 lg:px-6">
           {/* brand */}
-          <Link href="/" className="group flex shrink-0 items-center gap-3" aria-label={`${brand.name} home`}>
-            <LogoEmblem size={46} className="transition-transform group-hover:scale-105" />
-            <span className="flex flex-col leading-tight">
-              <span className="font-serif text-lg font-bold tracking-tight text-ink lg:text-xl">{brand.name} App</span>
+          <Link href="/" className="group flex min-w-0 shrink-0 items-center gap-3" aria-label={`${brand.name} home`}>
+            <LogoEmblem size={44} className="transition-transform group-hover:scale-105" />
+            <span className="flex min-w-0 flex-col leading-tight">
+              <span className="truncate font-serif text-lg font-bold tracking-tight text-ink xl:text-xl">{brand.name} App</span>
               <span className="hidden text-[11px] font-medium text-muted sm:block">{brand.tagline}</span>
             </span>
           </Link>
 
           {/* desktop nav — icon over 2-line label with aligned gold underline */}
-          <nav className="ml-auto hidden items-stretch xl:flex" aria-label="Primary">
+          <nav className="ml-auto hidden items-stretch lg:flex" aria-label="Primary">
             {NAV.map((item) => {
               const active = isActive(pathname, item.href);
               return (
@@ -69,12 +69,12 @@ export function TopNav() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "group relative flex w-[6.1rem] flex-col items-center gap-1.5 px-1.5 pt-3 text-center transition-colors",
-                    active ? "text-accent-strong dark:text-accent" : "text-ink-soft hover:text-accent-strong dark:hover:text-accent",
+                    "group relative flex w-[5.45rem] flex-col items-center gap-1.5 px-1 pt-3 text-center transition-colors xl:w-[6.25rem]",
+                    active ? "text-ink dark:text-accent" : "text-ink-soft hover:text-accent-strong dark:hover:text-accent",
                   )}
                 >
                   <Icon name={item.icon} size={22} strokeWidth={active ? 2.1 : 1.8} />
-                  <span className={cn("flex h-[1.9rem] items-start justify-center text-[11px] leading-[1.15] line-clamp-2", active ? "font-semibold" : "font-medium")}>
+                  <span className={cn("flex h-[1.9rem] items-start justify-center text-[10px] leading-[1.12] line-clamp-2 xl:text-[11px]", active ? "font-semibold" : "font-medium")}>
                     {item.label}
                   </span>
                   {active && (
@@ -93,7 +93,7 @@ export function TopNav() {
           <button
             onClick={() => setDrawer(true)}
             aria-label="Open menu"
-            className="my-auto ml-auto grid size-10 place-items-center rounded-full border border-border bg-surface text-ink xl:hidden"
+            className="my-auto ml-auto grid size-10 place-items-center rounded-full border border-border bg-surface text-ink lg:hidden"
           >
             <Icon name="Menu" size={18} />
           </button>
@@ -103,7 +103,7 @@ export function TopNav() {
       {/* mobile drawer */}
       <AnimatePresence>
         {drawer && (
-          <div className="fixed inset-0 z-[95] xl:hidden">
+          <div className="fixed inset-0 z-[95] lg:hidden">
             <motion.div
               className="absolute inset-0 bg-ink-900/55 backdrop-blur-sm"
               initial={{ opacity: 0 }}

@@ -37,11 +37,11 @@ export function NeighborSection() {
       </section>
 
       {/* Sub-tabs */}
-      <div className="sticky top-[4.6rem] z-30 -mt-px">
+      <div className="sticky top-[4.9rem] z-30 -mt-px">
         <SubTabs tabs={TABS} active={active} onChange={setActive} accent="gold" />
       </div>
 
-      <section className="bg-bg-tint py-8">
+      <section className="bg-bg-tint py-5 sm:py-6">
         <Container size="wide">
           <div key={active} className="animate-concept-in">
             {active === "pray" && <NeighborDashboard />}

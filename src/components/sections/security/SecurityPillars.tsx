@@ -104,11 +104,11 @@ export function SecurityPillars() {
           return (
             <article
               key={p.key}
-              className="flex h-full flex-col rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface"
+              className="flex h-full flex-col rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface"
             >
               <div className="flex items-start gap-3">
                 <span className="relative mt-0.5 shrink-0" style={{ color }}>
-                  <Icon name={p.icon} size={40} strokeWidth={1.8} />
+                  <Icon name={p.icon} size={34} strokeWidth={1.8} />
                   {p.overlay && (
                     <span
                       className="absolute -bottom-1 -right-1.5 grid size-5 place-items-center rounded bg-white dark:bg-surface"
@@ -124,7 +124,7 @@ export function SecurityPillars() {
                 </div>
               </div>
 
-              <ul className="mt-5 flex-1 space-y-3.5">
+              <ul className="mt-4 flex-1 space-y-3">
                 {p.items.map((it) => (
                   <li key={it.t} className="flex items-start gap-2.5">
                     <span
@@ -144,7 +144,7 @@ export function SecurityPillars() {
               <button
                 type="button"
                 onClick={() => setOpen(p.key)}
-                className="mt-5 w-fit rounded-md px-4 py-2 text-[13px] font-semibold text-white transition-all hover:brightness-110 active:scale-[0.98]"
+                className="mt-4 w-fit rounded-md px-4 py-2 text-[13px] font-semibold text-white transition-all hover:brightness-110 active:scale-[0.98]"
                 style={{ background: color }}
               >
                 {p.cta}

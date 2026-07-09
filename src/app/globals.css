@@ -116,9 +116,13 @@
     border-color: var(--border);
   }
   html {
+    max-width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
   }
   body {
+    max-width: 100%;
+    overflow-x: hidden;
     background-color: var(--bg);
     /* whisper-soft parchment warmth so pure white never feels clinical */
     background-image:

@@ -63,9 +63,9 @@ export function UpcomingEvents({ onHost }: { onHost: () => void }) {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* ── 3-column band ─────────────────────────────── */}
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-3">
         {/* Column 1 — Upcoming B&B Events */}
         <section>
           <div className="flex items-start justify-between gap-3">
@@ -81,11 +81,11 @@ export function UpcomingEvents({ onHost }: { onHost: () => void }) {
             </button>
           </div>
 
-          <ul className="mt-4 space-y-4">
+          <ul className="mt-3 space-y-3">
             {bbEvents.map((e) => (
               <li key={e.id} className="flex items-center gap-3">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={e.img} alt="" className="size-14 shrink-0 rounded-lg object-cover" width={56} height={56} />
+                <img src={e.img} alt="" className="size-12 shrink-0 rounded-lg object-cover" width={56} height={56} />
                 <div className="min-w-0 flex-1">
                   <p className="font-serif text-sm font-bold leading-snug text-ink">{e.title}</p>
                   <p className="mt-0.5 text-xs text-muted">{e.date}</p>
@@ -111,7 +111,7 @@ export function UpcomingEvents({ onHost }: { onHost: () => void }) {
           <p className="mt-0.5 text-xs text-muted">Find, join, and build friendships in your area.</p>
 
           <div className="relative mt-4">
-            <MapPlaceholder pins={mapPins} height={190} variant="streets" onPinClick={(id) => pushToast(`${mapPins.find((p) => p.id === id)?.label ?? "Gathering"} selected on the map.`, "accent")} />
+            <MapPlaceholder pins={mapPins} height={170} variant="streets" onPinClick={(id) => pushToast(`${mapPins.find((p) => p.id === id)?.label ?? "Gathering"} selected on the map.`, "accent")} />
             <button
               onClick={() => pushToast("Located you near Cedar Hills, UT.", "success")}
               className="absolute bottom-2.5 left-2.5 inline-flex items-center gap-1.5 rounded-md bg-white px-2.5 py-1.5 text-xs font-semibold text-ink shadow-md dark:bg-surface"
@@ -121,7 +121,7 @@ export function UpcomingEvents({ onHost }: { onHost: () => void }) {
           </div>
 
           {/* Can't find one near you */}
-          <div className="relative mt-4 overflow-hidden rounded-xl border border-border bg-white dark:bg-surface">
+          <div className="relative mt-3 overflow-hidden rounded-xl border border-border bg-white dark:bg-surface">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/bb-spark.jpg"
@@ -147,12 +147,12 @@ export function UpcomingEvents({ onHost }: { onHost: () => void }) {
           <h2 className="font-serif text-xl font-bold text-ink">Host Tools &amp; Resources</h2>
           <p className="mt-0.5 text-xs text-muted">Everything you need for a meaningful gathering.</p>
 
-          <ul className="mt-4 space-y-3">
+          <ul className="mt-3 space-y-2.5">
             {hostRows.map((r) => (
               <li key={r.title}>
                 <button
                   onClick={r.onClick}
-                  className="group flex w-full items-center gap-3 rounded-xl border border-border bg-white p-3.5 text-left transition-shadow hover:shadow-md dark:bg-surface"
+                  className="group flex w-full items-center gap-3 rounded-xl border border-border bg-white p-3 text-left transition-shadow hover:shadow-md dark:bg-surface"
                 >
                   <span className="shrink-0 text-accent-strong dark:text-accent">
                     <Icon name={r.icon} size={26} strokeWidth={1.7} />

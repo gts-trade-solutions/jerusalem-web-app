@@ -8,7 +8,7 @@ import { Icon } from "./Icon";
 import { cn } from "@/lib/cn";
 
 /** Bottom tab bar for quick thumb access on mobile; full nav lives in the drawer. */
-const BAR = ["/", "/neighbor", "/faith", "/music", "/events"];
+const BAR = ["/", "/neighbor", "/faith", "/unity", "/events"];
 
 export function MobileNav() {
   const pathname = usePathname();
@@ -17,18 +17,18 @@ export function MobileNav() {
   return (
     <nav
       aria-label="Mobile quick nav"
-      className="fixed inset-x-0 bottom-0 z-[85] border-t border-border bg-bg/95 backdrop-blur-sm xl:hidden"
+      className="fixed inset-x-0 bottom-0 z-[85] w-screen max-w-full border-t border-border bg-bg/95 backdrop-blur-sm lg:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      <ul className="flex items-stretch justify-around">
+      <ul className="flex w-full items-stretch justify-around">
         {items.map((item) => {
           const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
           return (
-            <li key={item.href} className="flex-1">
+            <li key={item.href} className="min-w-0 flex-1">
               <Link
                 href={item.href}
                 className={cn(
-                  "relative flex flex-col items-center gap-0.5 py-2.5 text-[10px] font-medium transition-colors",
+                  "relative flex min-w-0 flex-col items-center gap-0.5 py-2.5 text-[10px] font-medium transition-colors",
                   active ? "text-accent" : "text-muted",
                 )}
               >

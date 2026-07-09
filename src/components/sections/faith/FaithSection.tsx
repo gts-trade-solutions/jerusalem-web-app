@@ -14,9 +14,9 @@ const ROW2 = ["D&C 100:5", "D&C 33:8", "D&C 84:85", "D&C 100:6", "D&C 60:2"];
 export function FaithSection() {
   return (
     <>
-      <section className="bg-bg-tint py-6">
+      <section className="bg-bg-tint py-5 sm:py-6">
         <Container size="wide">
-          <div className="grid gap-6 lg:grid-cols-[16rem_1fr]">
+          <div className="grid gap-4 lg:grid-cols-[15.5rem_1fr]">
             <FaithSidebar />
             <FaithDashboard />
           </div>

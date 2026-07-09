@@ -60,11 +60,11 @@ export function NeighborDashboard() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* ── Prayer Feed + Sisters in Zion ─────────────── */}
-      <div className="grid gap-6 lg:grid-cols-[1.75fr_1fr]">
+      <div className="grid items-start gap-4 lg:grid-cols-[1.75fr_1fr]">
         {/* Prayer Feed */}
-        <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div className="flex items-start gap-3">
               <span className="text-accent-strong dark:text-accent">
@@ -85,7 +85,7 @@ export function NeighborDashboard() {
             </button>
           </div>
 
-          <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
             <div className="flex gap-2">
               {([["all", "All Prayers"], ["needs", "Needs Prayer"], ["answered", "Answered"]] as const).map(([id, lbl]) => (
                 <button
@@ -105,20 +105,20 @@ export function NeighborDashboard() {
             </span>
           </div>
 
-          <ul className="mt-4 divide-y divide-border">
+          <ul className="mt-3 divide-y divide-border">
             {list.map((p) => {
               const on = praying.has(p.id);
               const total = p.count + (on ? 1 : 0);
               const answered = p.status === "answered";
               return (
-                <li key={p.id} className="flex items-start gap-3 py-4">
-                  <Avatar name={p.name} seed={p.id} size={40} />
+                <li key={p.id} className="flex flex-wrap items-start gap-3 py-3 sm:flex-nowrap">
+                  <Avatar name={p.name} seed={p.id} size={36} />
                   <div className="min-w-0 flex-1">
                     <h3 className="font-serif text-[15px] font-bold text-ink">{p.title}</h3>
                     <p className="mt-0.5 text-xs leading-relaxed text-muted">{p.body}</p>
                     <p className="mt-1 text-[11px] text-faint">{p.name} · {p.time}</p>
                   </div>
-                  <div className="flex shrink-0 flex-col items-end gap-2">
+                  <div className="ml-12 flex w-full shrink-0 items-center justify-between gap-2 sm:ml-0 sm:w-auto sm:flex-col sm:items-end">
                     <span className={cn(
                       "rounded-full px-2.5 py-0.5 text-[11px] font-semibold",
                       answered ? "bg-sage-soft text-sage" : "bg-[#f7e0e0] text-[#a23b3b]",
@@ -137,7 +137,7 @@ export function NeighborDashboard() {
             })}
           </ul>
 
-          <div className="mt-2 flex justify-center border-t border-border pt-4">
+          <div className="mt-1 flex justify-center border-t border-border pt-3">
             <button
               onClick={() => pushToast("Showing all prayer requests in your community.", "accent")}
               className="rounded-md border border-border px-4 py-2 text-xs font-semibold text-ink transition-colors hover:bg-surface-2"
@@ -148,7 +148,7 @@ export function NeighborDashboard() {
         </section>
 
         {/* Sisters in Zion */}
-        <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex items-start gap-3">
             <span className="grid size-9 shrink-0 place-items-center rounded-full text-white" style={{ background: PURPLE }}>
               <Icon name="Users2" size={18} />
@@ -159,14 +159,14 @@ export function NeighborDashboard() {
             </div>
           </div>
 
-          <div className="mt-4 flex justify-center gap-3">
+          <div className="mt-3 flex justify-center gap-3">
             {["/images/nb-sis1.jpg", "/images/nb-sis2.jpg"].map((src) => (
               // eslint-disable-next-line @next/next/no-img-element
-              <img key={src} src={src} alt="" className="size-24 rounded-full object-cover ring-2 ring-white shadow-sm" width={96} height={96} />
+              <img key={src} src={src} alt="" className="size-20 rounded-full object-cover ring-2 ring-white shadow-sm" width={96} height={96} />
             ))}
           </div>
 
-          <ul className="mt-5 space-y-3">
+          <ul className="mt-4 space-y-2.5">
             {sisterRows.map((r) => (
               <li key={r.title}>
                 <button
@@ -188,7 +188,7 @@ export function NeighborDashboard() {
 
           <button
             onClick={() => pushToast("Welcome to Sisters in Zion.", "accent")}
-            className="mt-5 w-full rounded-md py-2.5 text-sm font-semibold transition-colors"
+            className="mt-4 w-full rounded-md py-2.5 text-sm font-semibold transition-colors"
             style={{ background: "#ece8f6", color: PURPLE }}
           >
             Go to Sisters in Zion
@@ -197,8 +197,8 @@ export function NeighborDashboard() {
       </div>
 
       {/* ── Just Serve Map · Quick Actions · Verse ────── */}
-      <div className="grid gap-6 lg:grid-cols-3">
-        <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+      <div className="grid gap-4 lg:grid-cols-3">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex items-start gap-3">
             <span className="text-[#1d4ed8]"><Icon name="MapPin" size={28} strokeWidth={1.8} /></span>
             <div>
@@ -217,7 +217,7 @@ export function NeighborDashboard() {
           </button>
         </section>
 
-        <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+        <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex items-center gap-2.5">
             <span className="text-accent-strong dark:text-accent"><Icon name="HandHeart" size={24} /></span>
             <h3 className="font-serif text-lg font-bold text-ink">Quick Actions</h3>
@@ -236,12 +236,12 @@ export function NeighborDashboard() {
           </ul>
         </section>
 
-        <section className="relative overflow-hidden rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
+        <section className="relative overflow-hidden rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <div className="flex items-center gap-2.5">
             <span className="text-ink"><Icon name="BookOpen" size={22} /></span>
             <h3 className="font-serif text-lg font-bold text-ink">Verse of Encouragement</h3>
           </div>
-          <blockquote className="mt-4 font-serif text-base italic leading-snug text-ink">
+          <blockquote className="mt-3 font-serif text-base italic leading-snug text-ink">
             &ldquo;Bear ye one another&apos;s burdens, and so fulfill the law of Christ.&rdquo;
           </blockquote>
           <p className="mt-1 font-serif text-sm text-muted">Galatians 6:2</p>
@@ -266,7 +266,7 @@ export function NeighborDashboard() {
           </div>
         </div>
 
-        <div className="mt-4 grid gap-4 sm:grid-cols-3">
+        <div className="mt-3 grid gap-4 sm:grid-cols-3">
           {stories.map((s) => (
             <article key={s.title} className="flex items-center gap-3 rounded-xl border border-border bg-white p-3 shadow-sm dark:bg-surface">
               {/* eslint-disable-next-line @next/next/no-img-element */}

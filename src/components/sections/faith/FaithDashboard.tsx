@@ -52,7 +52,7 @@ export function FaithDashboard() {
   const [testimonyOpen, setTestimonyOpen] = useState(false);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {/* Hero band */}
       <div className="overflow-hidden rounded-xl border border-border">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -60,13 +60,13 @@ export function FaithDashboard() {
       </div>
 
       {/* A + B */}
-      <div className="grid gap-5 lg:grid-cols-[1.15fr_1fr]">
+      <div className="grid gap-4 lg:grid-cols-[1.15fr_1fr]">
         <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <Heading letter="A" title="Messages from Church Leaders" action={() => pushToast("All leader messages…", "accent")} />
           <div className="mt-3 grid gap-3 sm:grid-cols-[auto_1fr]">
             <button onClick={() => setPlayer({ title: "The Joy of Sharing the Gospel", seed: "ward-meeting" })} className="group relative block overflow-hidden rounded-lg">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/fa-leader.jpg" alt="" className="h-32 w-full object-cover sm:w-48" width={206} height={150} />
+              <img src="/images/fa-leader.jpg" alt="" className="h-28 w-full object-cover sm:w-44" width={206} height={150} />
               <span className="absolute inset-0 grid place-items-center bg-black/15"><span className="grid size-9 place-items-center rounded-full bg-white/90 text-ink"><Icon name="Play" size={16} strokeWidth={2.4} /></span></span>
             </button>
             <div>
@@ -104,13 +104,13 @@ export function FaithDashboard() {
       </div>
 
       {/* C + D + E */}
-      <div className="grid gap-5 lg:grid-cols-3">
+      <div className="grid gap-4 lg:grid-cols-3">
         {/* C */}
         <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
           <h3 className="flex items-center gap-2 font-serif text-base font-bold text-ink">
             <Icon name="BookOpen" size={18} className="text-accent-strong dark:text-accent" /> C. Scriptures &amp; Book of Mormon
           </h3>
-          <blockquote className="mt-3 rounded-lg bg-ink-900 p-3 text-xs italic leading-relaxed text-white/90">
+          <blockquote className="mt-3 rounded-lg bg-ink-900 p-2.5 text-xs italic leading-relaxed text-white/90">
             &ldquo;Behold, I say unto you, that ye must study it out in your mind; then ye must ask me if it be right, and if it be right I will cause that your bosom shall burn within you; therefore, ye shall feel that it is right.&rdquo;
             <span className="mt-1 block not-italic font-semibold text-[#e6c164]">— D&amp;C 9:8</span>
           </blockquote>
@@ -158,7 +158,7 @@ export function FaithDashboard() {
           </h3>
           <button onClick={() => setPlayer({ title: "Daily Worship & Inspiration", seed: "golden-dawn" })} className="group relative mt-3 block w-full overflow-hidden rounded-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/fa-worship.jpg" alt="" className="h-28 w-full object-cover" width={252} height={120} />
+            <img src="/images/fa-worship.jpg" alt="" className="h-24 w-full object-cover" width={252} height={120} />
             <span className="absolute inset-0 grid place-items-center bg-black/15"><span className="grid size-9 place-items-center rounded-full bg-white/90 text-ink"><Icon name="Play" size={16} strokeWidth={2.4} /></span></span>
           </button>
           <blockquote className="mt-3 text-center font-serif text-sm italic leading-snug text-ink">
@@ -170,13 +170,13 @@ export function FaithDashboard() {
       </div>
 
       {/* Stronger together */}
-      <section className="rounded-xl border border-border bg-white p-5 shadow-sm dark:bg-surface">
-        <div className="grid gap-5 lg:grid-cols-[1fr_1.4fr] lg:items-center">
+      <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
+        <div className="grid gap-4 lg:grid-cols-[1fr_1.4fr] lg:items-center">
           <div>
             <h3 className="font-serif text-lg font-bold text-ink">We are stronger together.</h3>
             <p className="mt-1 text-xs leading-relaxed text-muted">Invite others to come unto Christ and be built upon the foundation of apostles and prophets.</p>
           </div>
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {strongerActions.map((a) => (
               <button key={a.label} onClick={() => pushToast(`${a.label}…`, "accent")} className="flex flex-col items-center gap-1.5 text-center">
                 <Icon name={a.icon} size={22} className="text-accent-strong dark:text-accent" />

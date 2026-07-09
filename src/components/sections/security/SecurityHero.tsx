@@ -20,21 +20,21 @@ export function SecurityHero() {
 
       <div className="relative z-[1] mx-auto grid max-w-[1400px] items-stretch lg:grid-cols-[1fr_1.02fr]">
         {/* text */}
-        <div className="px-4 py-10 sm:px-6 lg:py-12 lg:pl-10 lg:pr-0">
-          <h1 className="font-serif text-4xl font-bold leading-[1.05] tracking-tight text-[#251f12] lg:whitespace-nowrap lg:text-[2.45rem] xl:text-[2.9rem]">
+        <div className="min-w-0 px-4 py-8 sm:px-6 lg:py-10 lg:pl-10 lg:pr-0">
+          <h1 className="max-w-full break-words font-serif text-3xl font-bold leading-[1.05] tracking-tight text-[#251f12] sm:text-4xl lg:whitespace-nowrap lg:text-[2.45rem] xl:text-[2.9rem]">
             Authentication &amp; Security
           </h1>
-          <p className="mt-2 font-serif text-xl font-medium text-[#2f5d3a]">
+          <p className="mt-2 max-w-full break-words font-serif text-lg font-medium text-[#2f5d3a] sm:text-xl">
             Protecting Faith and Community in Christ.
           </p>
-          <p className="mt-5 max-w-md text-[15px] leading-relaxed text-[#3a352a]">
+          <p className="mt-4 max-w-md break-words text-[15px] leading-relaxed text-[#3a352a]">
             We are committed to providing a safe, trusted, and secure space for
             gathering, sharing, and growing together in Christ.
           </p>
         </div>
 
         {/* photo + floating card */}
-        <div className="relative min-h-[15rem]">
+        <div className="relative min-h-[14rem]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/images/security-hero.jpg"

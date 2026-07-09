@@ -29,10 +29,10 @@ export function ValueRow() {
       {values.map((v, i) => (
         <div
           key={v.title}
-          className={`flex items-start gap-3.5 p-5 ${i > 0 ? "border-t border-border sm:border-t-0 sm:border-l" : ""}`}
+          className={`flex items-start gap-3 p-4 ${i > 0 ? "border-t border-border sm:border-t-0 sm:border-l" : ""}`}
         >
           <span className="mt-0.5 shrink-0 text-ink">
-            <Icon name={v.icon} size={30} strokeWidth={1.6} />
+            <Icon name={v.icon} size={26} strokeWidth={1.6} />
           </span>
           <div>
             <p className="text-[15px] font-bold text-ink">{v.title}</p>
