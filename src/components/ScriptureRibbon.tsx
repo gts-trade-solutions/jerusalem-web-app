@@ -62,7 +62,7 @@ export function ScriptureRibbon({
       aria-label="Scripture references"
     >
       {/* gold temple-skyline line art, lower left */}
-      <SkylineArt className="pointer-events-none absolute bottom-1 left-4 h-14 w-56 opacity-80 sm:h-16 sm:w-64" />
+      <SkylineArt className="pointer-events-none absolute bottom-1 left-[max(1rem,calc(50%_-_32rem))] h-14 w-56 opacity-80 sm:h-16 sm:w-64" />
 
       <Container className="relative z-[1] py-7 text-center">
         <p className="mx-auto max-w-3xl font-serif text-lg italic leading-snug text-[#f3e9cf] sm:text-xl text-balance">

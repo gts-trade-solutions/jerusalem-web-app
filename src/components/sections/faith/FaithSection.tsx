@@ -25,7 +25,7 @@ export function FaithSection() {
 
       {/* Scripture References ribbon */}
       <section className="relative overflow-hidden border-t-2 border-[#c9a13b] bg-ink-900 text-white" aria-label="Scripture references">
-        <SkylineArt className="pointer-events-none absolute bottom-1 left-4 h-14 w-56 opacity-70 sm:h-16 sm:w-64" />
+        <SkylineArt className="pointer-events-none absolute bottom-1 left-[max(1rem,calc(50%_-_32rem))] h-14 w-56 opacity-70 sm:h-16 sm:w-64" />
         <Container className="relative z-[1] py-7 text-center">
           <p className="font-serif text-lg font-bold text-white">Scripture References</p>
           <div className="mx-auto mt-4 flex max-w-4xl flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-white/85">

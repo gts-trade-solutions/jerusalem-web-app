@@ -290,6 +290,13 @@
 }
 .animate-concept-in { animation: concept-in 0.45s cubic-bezier(0.22, 0.7, 0.2, 1); }
 
+/* smooth crossfade + gentle drift for the home concept carousel */
+@keyframes slide-fade {
+  from { opacity: 0; transform: translateX(18px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-fade { animation: slide-fade 0.6s cubic-bezier(0.22, 0.7, 0.2, 1); }
+
 @keyframes shimmer-slide {
   to { background-position: -220% 0; }
 }

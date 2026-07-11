@@ -116,7 +116,7 @@ export default function BaptismPage() {
       </section>
 
       <section className="relative overflow-hidden border-t-2 border-[#c9a13b] bg-ink-900 text-white" aria-label="Scripture references">
-        <SkylineArt className="pointer-events-none absolute bottom-1 left-4 h-14 w-56 opacity-70 sm:h-16 sm:w-64" />
+        <SkylineArt className="pointer-events-none absolute bottom-1 left-[max(1rem,calc(50%_-_32rem))] h-14 w-56 opacity-70 sm:h-16 sm:w-64" />
         <Container className="relative z-[1] py-7 text-center">
           <p className="font-serif text-xl italic text-[#f3e9cf] sm:text-2xl">
             &ldquo;Behold, how good and how pleasant it is for brethren to dwell together in unity!&rdquo;

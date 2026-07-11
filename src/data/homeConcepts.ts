@@ -121,9 +121,9 @@ export const homeConcepts: HomeConceptData[] = [
     heroChip: { title: "Kansas City Temple", sub: "Our beacon and covenant center" },
     sectionTitle: "How We Gather and Build Together",
     cards: [
-      { icon: "Church", iconBg: "teal", title: "Pioneer Crossing Development", body: "A faith-filled community planned near the Kansas City Temple—built for families, rooted in Zion.", image: "/images/pio-card1.jpg" },
+      { icon: "House", iconBg: "teal", title: "Pioneer Crossing Development", body: "A faith-filled community planned near the Kansas City Temple—built for families, rooted in Zion.", image: "/images/pio-card1.jpg" },
       { icon: "Users", iconBg: "brown", title: "Modern Pioneers", body: "Stories of families answering the call to gather, relocate, and build Zion communities today.", image: "/images/pio-card2.jpg" },
-      { icon: "Sprout", iconBg: "teal", title: "Faith Journeys", body: "Testimonies of sacrifice, hope, and miracles as Saints build Zion across generations.", image: "/images/pio-card3.jpg" },
+      { icon: "Leaf", iconBg: "teal", title: "Faith Journeys", body: "Testimonies of sacrifice, hope, and miracles as Saints build Zion across generations.", image: "/images/pio-card3.jpg" },
     ],
     promise: {
       text: "We walk together in truth, honor our ancestors, and build Zion for future generations, through Christ, our cornerstone.",

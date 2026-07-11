@@ -12,7 +12,7 @@ import {
   Wallet, GraduationCap, Briefcase, ChefHat, PartyPopper, MonitorPlay,
   ThumbsUp, Send, Bookmark, MapPinned, Navigation, Cross, Wind, Info,
   ShieldAlert, Fingerprint, RefreshCw, MonitorSmartphone, Trophy, LifeBuoy,
-  Volume2, Repeat, Shuffle, Bird, Check, Droplet, type LucideIcon,
+  Volume2, Repeat, Shuffle, Bird, Check, Droplet, Leaf, House, type LucideIcon,
 } from "lucide-react";
 
 const registry: Record<string, LucideIcon> = {
@@ -29,7 +29,7 @@ const registry: Record<string, LucideIcon> = {
   Wallet, GraduationCap, Briefcase, ChefHat, PartyPopper, MonitorPlay,
   ThumbsUp, Send, Bookmark, MapPinned, Navigation, Cross, Wind, Info,
   ShieldAlert, Fingerprint, RefreshCw, MonitorSmartphone, Trophy, LifeBuoy,
-  Volume2, Repeat, Shuffle, Bird, Check, Droplet,
+  Volume2, Repeat, Shuffle, Bird, Check, Droplet, Leaf, House,
 };
 
 export interface IconProps {

@@ -69,12 +69,12 @@ export function TopNav() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "group relative flex w-[6.1rem] flex-col items-center gap-1.5 px-1.5 pt-3 text-center transition-colors",
+                    "group relative flex w-[6.7rem] flex-col items-center gap-1.5 px-1 pt-3 text-center transition-colors",
                     active ? "text-accent-strong dark:text-accent" : "text-ink-soft hover:text-accent-strong dark:hover:text-accent",
                   )}
                 >
                   <Icon name={item.icon} size={22} strokeWidth={active ? 2.1 : 1.8} />
-                  <span className={cn("flex h-[1.9rem] items-start justify-center text-[11px] leading-[1.15] line-clamp-2", active ? "font-semibold" : "font-medium")}>
+                  <span className={cn("flex h-[2.4rem] items-start justify-center text-[10.5px] leading-[1.15] line-clamp-2", active ? "font-semibold" : "font-medium")}>
                     {item.label}
                   </span>
                   {active && (

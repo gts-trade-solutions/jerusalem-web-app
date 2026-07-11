@@ -54,6 +54,7 @@ export function HomeConcept({
   hideRibbon,
   heroOnly,
   cardsOnly,
+  noHero,
 }: {
   c: HomeConceptData;
   nav?: ConceptNav;
@@ -62,6 +63,8 @@ export function HomeConcept({
   heroOnly?: boolean;
   /** Render only the "How We…" cards + Our Promise (no hero, ribbon, or infoBar). */
   cardsOnly?: boolean;
+  /** Render everything except the hero (cards + Our Promise + ribbon + infoBar). */
+  noHero?: boolean;
 }) {
   const titleColor = c.accent === "gold" ? "text-ink" : "text-[#241d12] dark:text-ink";
   const rule = c.accent === "gold" ? "bg-[#c9a13b]/80" : "bg-[#c9a13b]/70";
@@ -71,7 +74,7 @@ export function HomeConcept({
   return (
     <div className="bg-white dark:bg-bg">
       {/* ── Hero ─────────────────────────────────────────── */}
-      {!cardsOnly && (
+      {!cardsOnly && !noHero && (
       <section>
         <div className={`mx-auto grid max-w-[1400px] min-w-0 gap-6 pl-4 sm:pl-6 lg:grid-cols-[1fr_1.35fr] lg:gap-6 lg:pl-10 ${welfare ? "items-start" : "items-center"}`}>
           <div className={`min-w-0 pr-4 sm:pr-6 lg:pr-0 ${welfare ? "pt-5 lg:pt-5" : "pt-8 lg:py-8"}`}>
@@ -220,7 +223,7 @@ export function HomeConcept({
         aria-label="Scripture references"
       >
         {c.ribbon.deco === "skyline" && (
-          <SkylineArt className="pointer-events-none absolute bottom-1 left-4 h-14 w-56 opacity-80 sm:h-16 sm:w-64" />
+          <SkylineArt className="pointer-events-none absolute bottom-1 left-[max(1rem,calc(50%_-_32rem))] h-14 w-56 opacity-80 sm:h-16 sm:w-64" />
         )}
         <Container className="relative z-[1] py-7 text-center">
           <div className="flex items-center justify-center gap-4">
