@@ -47,7 +47,22 @@ export interface ConceptNav {
   go: (i: number) => void;
 }
 
-export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: ConceptNav; infoBar?: React.ReactNode }) {
+export function HomeConcept({
+  c,
+  nav,
+  infoBar,
+  hideRibbon,
+  heroOnly,
+  cardsOnly,
+}: {
+  c: HomeConceptData;
+  nav?: ConceptNav;
+  infoBar?: React.ReactNode;
+  hideRibbon?: boolean;
+  heroOnly?: boolean;
+  /** Render only the "How We…" cards + Our Promise (no hero, ribbon, or infoBar). */
+  cardsOnly?: boolean;
+}) {
   const titleColor = c.accent === "gold" ? "text-ink" : "text-[#241d12] dark:text-ink";
   const rule = c.accent === "gold" ? "bg-[#c9a13b]/80" : "bg-[#c9a13b]/70";
   const dotOn = c.accent === "gold" ? "bg-accent" : "bg-teal";
@@ -56,6 +71,7 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
   return (
     <div className="bg-white dark:bg-bg">
       {/* ── Hero ─────────────────────────────────────────── */}
+      {!cardsOnly && (
       <section>
         <div className={`mx-auto grid max-w-[1400px] min-w-0 gap-6 pl-4 sm:pl-6 lg:grid-cols-[1fr_1.35fr] lg:gap-6 lg:pl-10 ${welfare ? "items-start" : "items-center"}`}>
           <div className={`min-w-0 pr-4 sm:pr-6 lg:pr-0 ${welfare ? "pt-5 lg:pt-5" : "pt-8 lg:py-8"}`}>
@@ -110,8 +126,10 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
           </div>
         </div>
       </section>
+      )}
 
       {/* ── Cards ────────────────────────────────────────── */}
+      {!heroOnly && (
       <section className="pb-8 pt-6">
         <div className="flex min-w-0 items-center gap-3 px-4 sm:gap-5 sm:px-10">
           <span className={`h-px flex-1 ${rule}`} aria-hidden />
@@ -193,8 +211,10 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
           </div>
         </Container>
       </section>
+      )}
 
       {/* ── Scripture ribbon ────────────────────────────── */}
+      {!heroOnly && !cardsOnly && !hideRibbon && (
       <section
         className={`relative overflow-hidden text-white ${RIBBON_BG[c.ribbon.bg]} ${c.ribbon.deco === "skyline" ? "border-t-2 border-[#c9a13b]" : ""}`}
         aria-label="Scripture references"
@@ -231,8 +251,9 @@ export function HomeConcept({ c, nav, infoBar }: { c: HomeConceptData; nav?: Con
           </div>
         </Container>
       </section>
+      )}
 
-      {infoBar}
+      {!heroOnly && !cardsOnly && infoBar}
     </div>
   );
 }

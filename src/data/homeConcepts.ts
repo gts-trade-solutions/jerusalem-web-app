@@ -118,6 +118,7 @@ export const homeConcepts: HomeConceptData[] = [
     paragraph:
       "We are one people—rooted in covenant, relocated by the Spirit, and united in Christ. Together, we develop our strength, preserve our heritage, and build a future of faith, family, and freedom in Zion.",
     heroImage: "/images/hero-pioneer.jpg",
+    heroChip: { title: "Kansas City Temple", sub: "Our beacon and covenant center" },
     sectionTitle: "How We Gather and Build Together",
     cards: [
       { icon: "Church", iconBg: "teal", title: "Pioneer Crossing Development", body: "A faith-filled community planned near the Kansas City Temple—built for families, rooted in Zion.", image: "/images/pio-card1.jpg" },
