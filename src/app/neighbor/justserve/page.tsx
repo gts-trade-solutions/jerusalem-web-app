@@ -43,7 +43,7 @@ export default function JustServePage() {
 
       <section className="border-b border-border bg-white dark:bg-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/js-hero.jpg" alt="Just Serve Projects — Small acts of service. Eternal impact. Matthew 25:40" className="block w-full select-none" width={1536} height={200} />
+        <img src="/images/js-hero.png" alt="Just Serve Projects — Small acts of service. Eternal impact. Matthew 25:40" className="block w-full select-none" width={1536} height={190} />
       </section>
 
       {/* secondary pill nav */}

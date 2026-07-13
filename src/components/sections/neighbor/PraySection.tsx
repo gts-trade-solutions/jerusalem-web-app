@@ -42,7 +42,7 @@ export function PraySection() {
       {/* hero band */}
       <section className="border-b border-border bg-white dark:bg-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/pray-hero.jpg" alt="Lift and receive prayers in faith. — James 5:16" className="block w-full select-none" width={1548} height={262} />
+        <img src="/images/pray-hero.png" alt="Lift and receive prayers in faith. — James 5:16" className="block w-full select-none" width={1548} height={262} />
       </section>
 
       <section className="bg-[#faf7f1] py-8 dark:bg-bg">

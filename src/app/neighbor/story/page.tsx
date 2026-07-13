@@ -13,11 +13,11 @@ const features = [
 ];
 
 const stories = [
-  { title: "A Simple Meal, A Grateful Heart", body: "We delivered meals to a family in need. Their gratitude touched our hearts and brought us closer together.", badge: "True", date: "May 12, 2024" },
-  { title: "Planting Hope in the Community", body: "Our neighborhood garden project brought people together and helped many families.", badge: "True", date: "May 5, 2024" },
-  { title: "Blessings from Our Chicken Coop", body: "Chickens and eggs have blessed our family and neighbors in wonderful ways.", badge: "Story Only", date: "Apr 28, 2024" },
-  { title: "Learning Together in a Self-Reliance Group", body: "Our group is growing in knowledge and confidence as we learn and support one another.", badge: "True", date: "Apr 15, 2024" },
-  { title: "Small Acts, Big Impact", body: "Holding the door, offering a smile, and kind words can brighten someone's day.", badge: "Story Only", date: "Apr 2, 2024" },
+  { img: "/images/st-1.jpg", title: "A Simple Meal, A Grateful Heart", body: "We delivered meals to a family in need. Their gratitude touched our hearts and brought us closer together.", badge: "True", date: "May 12, 2024" },
+  { img: "/images/st-2.jpg", title: "Planting Hope in the Community", body: "Our neighborhood garden project brought people together and helped many families.", badge: "True", date: "May 5, 2024" },
+  { img: "/images/st-3.jpg", title: "Blessings from Our Chicken Coop", body: "Chickens and eggs have blessed our family and neighbors in wonderful ways.", badge: "Story Only", date: "Apr 28, 2024" },
+  { img: "/images/st-4.jpg", title: "Learning Together in a Self-Reliance Group", body: "Our group is growing in knowledge and confidence as we learn and support one another.", badge: "True", date: "Apr 15, 2024" },
+  { img: "/images/st-5.jpg", title: "Small Acts, Big Impact", body: "Holding the door, offering a smile, and kind words can brighten someone's day.", badge: "Story Only", date: "Apr 2, 2024" },
 ];
 
 const refs = ["Galatians 6:10", "3 Nephi 12:44", "Ephesians 4:32", "D&C 59:6", "2 Nephi 31:20", "John 15:13", "1 John 4:21", "Matthew 25:34-40", "Matthew 22:39", "Moroni 7:45", "Alma 7:11-13", "Galatians 5:14", "Ephesians 2:8", "Ephesians 5:2", "Mosiah 2:17"];
@@ -41,7 +41,7 @@ export default function StoryPage() {
 
       <section className="border-b border-border bg-white dark:bg-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/story-hero.jpg" alt="Sharing a Story of Love — Inspiring others with acts of faith, kindness, and service. 3 Nephi 18:24" className="block w-full select-none" width={1536} height={205} />
+        <img src="/images/story-hero.png" alt="Sharing a Story of Love — Inspiring others with acts of faith, kindness, and service. 3 Nephi 18:24" className="block w-full select-none" width={1536} height={178} />
       </section>
 
       {/* feature strip */}
@@ -77,7 +77,8 @@ export default function StoryPage() {
               <ul className="mt-4 divide-y divide-border">
                 {stories.map((s) => (
                   <li key={s.title} className="flex items-start gap-3 py-3">
-                    <span className="grid size-14 shrink-0 place-items-center rounded-lg bg-surface-2 text-muted"><Icon name="Heart" size={18} /></span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={s.img} alt="" className="size-14 shrink-0 rounded-lg object-cover" width={56} height={56} />
                     <div className="min-w-0 flex-1">
                       <h3 className="text-sm font-bold text-ink-900 dark:text-ink">{s.title}</h3>
                       <p className="text-xs leading-snug text-muted">{s.body}</p>

@@ -42,11 +42,11 @@ export default function NeighborPage() {
       <section className="border-b border-border bg-white dark:bg-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/nb2-hero.jpg"
+          src="/images/nb2-hero.png"
           alt="Loving Our Neighbor — Serve, support, and care for one another as disciples of Christ."
           className="block w-full select-none"
           width={1536}
-          height={384}
+          height={366}
         />
       </section>
 

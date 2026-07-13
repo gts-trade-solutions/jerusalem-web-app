@@ -29,7 +29,7 @@ export default function SistersPage() {
       {/* hero band */}
       <section className="border-b border-border bg-white dark:bg-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/sis-hero.jpg" alt="Sisters in Zion — Lift and support each other as we serve the Lord together. Mosiah 18:9" className="block w-full select-none" width={1536} height={364} />
+        <img src="/images/sis-hero.png" alt="Sisters in Zion — Lift and support each other as we serve the Lord together. Mosiah 18:9" className="block w-full select-none" width={1536} height={322} />
       </section>
 
       <section className="bg-[#f7f3fb] py-8 dark:bg-bg">

@@ -27,11 +27,11 @@ export default function BaptismPage() {
       <section className="border-b border-border bg-white dark:bg-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/images/ba-hero.jpg"
+          src="/images/ba-hero.png"
           alt="Does Unity Require Baptism? Seeking unity in Christ through faith, love, and divine order."
           className="block w-full select-none"
-          width={1024}
-          height={240}
+          width={773}
+          height={230}
         />
       </section>
 
@@ -46,28 +46,32 @@ export default function BaptismPage() {
                 ))}
               </div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/un2-baptism.jpg" alt="" className="h-full max-h-72 w-full rounded-xl object-cover" width={312} height={208} />
+              <img src="/images/ba-article.jpg" alt="Four friends discussing the scriptures together" className="h-full max-h-72 w-full rounded-xl object-cover" width={340} height={242} />
             </div>
           </article>
 
           <div className="mt-5 grid gap-4 lg:grid-cols-3">
-            <section className="rounded-xl border border-border bg-white p-4 shadow-sm dark:bg-surface">
-              <div className="flex items-center gap-2.5">
-                <span className="text-[#c99a34]">
-                  <Icon name="Users" size={24} />
-                </span>
-                <h3 className="font-serif text-base font-bold text-ink">A Shared Journey Toward Zion</h3>
+            <section className="flex flex-col overflow-hidden rounded-xl border border-border bg-white shadow-sm dark:bg-surface">
+              <div className="p-4">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-[#c99a34]">
+                    <Icon name="Users" size={24} />
+                  </span>
+                  <h3 className="font-serif text-base font-bold text-ink">A Shared Journey Toward Zion</h3>
+                </div>
+                <ul className="mt-4 space-y-3">
+                  {journey.map((j) => (
+                    <li key={j} className="flex items-start gap-2.5">
+                      <span className="mt-0.5 grid size-[18px] shrink-0 place-items-center rounded-full bg-[#c99a34] text-white">
+                        <Icon name="Check" size={11} strokeWidth={3} />
+                      </span>
+                      <span className="text-xs leading-snug text-ink-soft">{j}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="mt-4 space-y-3">
-                {journey.map((j) => (
-                  <li key={j} className="flex items-start gap-2.5">
-                    <span className="mt-0.5 grid size-[18px] shrink-0 place-items-center rounded-full bg-[#c99a34] text-white">
-                      <Icon name="Check" size={11} strokeWidth={3} />
-                    </span>
-                    <span className="text-xs leading-snug text-ink-soft">{j}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/ba-journey.jpg" alt="" className="mt-auto h-24 w-full object-cover" width={229} height={56} />
             </section>
 
             <section className="flex flex-col overflow-hidden rounded-xl border border-border bg-white shadow-sm dark:bg-surface">
