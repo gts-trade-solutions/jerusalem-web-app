@@ -2,7 +2,7 @@ import Link from "next/link";
 import { NAV, brand } from "@/lib/nav";
 import { Container } from "./ui/Container";
 import { Icon } from "./Icon";
-import { LogoEmblem, Ornament } from "./Sacred";
+import { Ornament } from "./Sacred";
 
 export function Footer() {
   return (
@@ -11,7 +11,8 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5">
-              <LogoEmblem size={38} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo-seal.png" alt="" width={40} height={40} className="size-10 rounded-full" />
               <span className="font-serif text-lg font-bold text-ink">{brand.name} App</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted text-pretty">

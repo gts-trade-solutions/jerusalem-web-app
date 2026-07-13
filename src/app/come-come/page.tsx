@@ -1,6 +1,7 @@
-import { redirect } from "next/navigation";
+import { GatheringConcepts } from "@/components/sections/home/GatheringConcepts";
 
-// The three gathering concepts now live together on the home carousel.
+export const metadata = { title: "Come, Come, Ye Saints" };
+
 export default function ComeComePage() {
-  redirect("/");
+  return <GatheringConcepts start={0} />;
 }

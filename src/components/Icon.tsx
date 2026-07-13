@@ -37,12 +37,13 @@ export interface IconProps {
   className?: string;
   size?: number;
   strokeWidth?: number;
+  style?: React.CSSProperties;
   "aria-hidden"?: boolean;
 }
 
-export function Icon({ name, className, size = 20, strokeWidth = 1.75 }: IconProps) {
+export function Icon({ name, className, size = 20, strokeWidth = 1.75, style }: IconProps) {
   const Cmp = registry[name] ?? Sparkles;
-  return <Cmp className={className} size={size} strokeWidth={strokeWidth} aria-hidden />;
+  return <Cmp className={className} size={size} strokeWidth={strokeWidth} style={style} aria-hidden />;
 }
 
 export type IconName = keyof typeof registry;

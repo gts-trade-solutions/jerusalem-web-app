@@ -7,7 +7,6 @@ import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { NAV, brand } from "@/lib/nav";
 import { useUser } from "@/context/UserContext";
 import { Icon } from "./Icon";
-import { LogoEmblem } from "./Sacred";
 import { ThemeToggle } from "./ThemeToggle";
 import { SettingsPopover } from "./SettingsPopover";
 import { Avatar } from "./ui/Avatar";
@@ -52,7 +51,8 @@ export function TopNav() {
         <div className="mx-auto flex h-[4.9rem] max-w-[1440px] items-stretch gap-4 px-4 sm:px-6 lg:px-8">
           {/* brand */}
           <Link href="/" className="group flex shrink-0 items-center gap-3" aria-label={`${brand.name} home`}>
-            <LogoEmblem size={46} className="transition-transform group-hover:scale-105" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/logo-seal.png" alt="" width={48} height={48} className="size-12 shrink-0 select-none rounded-full transition-transform group-hover:scale-105" />
             <span className="flex flex-col leading-tight">
               <span className="font-serif text-lg font-bold tracking-tight text-ink lg:text-xl">{brand.name} App</span>
               <span className="hidden text-[11px] font-medium text-muted sm:block">{brand.tagline}</span>
@@ -69,12 +69,12 @@ export function TopNav() {
                   href={item.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "group relative flex w-[6.7rem] flex-col items-center gap-1.5 px-1 pt-3 text-center transition-colors",
+                    "group relative flex w-[6.15rem] flex-col items-center gap-1.5 px-0.5 pt-3 text-center transition-colors",
                     active ? "text-accent-strong dark:text-accent" : "text-ink-soft hover:text-accent-strong dark:hover:text-accent",
                   )}
                 >
-                  <Icon name={item.icon} size={22} strokeWidth={active ? 2.1 : 1.8} />
-                  <span className={cn("flex h-[2.4rem] items-start justify-center text-[10.5px] leading-[1.15] line-clamp-2", active ? "font-semibold" : "font-medium")}>
+                  <Icon name={item.icon} size={21} strokeWidth={active ? 2.1 : 1.8} />
+                  <span className={cn("flex h-[2.3rem] items-start justify-center text-[10px] leading-[1.15] line-clamp-2", active ? "font-semibold" : "font-medium")}>
                     {item.label}
                   </span>
                   {active && (
@@ -120,7 +120,8 @@ export function TopNav() {
             >
               <div className="relative z-[1] flex items-center justify-between border-b border-border px-5 py-4">
                 <span className="flex items-center gap-2.5">
-                  <LogoEmblem size={34} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/images/logo-seal.png" alt="" width={34} height={34} className="size-9 rounded-full" />
                   <span className="font-serif text-lg font-bold text-ink">{brand.name} App</span>
                 </span>
                 <button

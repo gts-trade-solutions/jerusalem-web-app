@@ -1,6 +1,7 @@
-import { redirect } from "next/navigation";
+import { GatheringConcepts } from "@/components/sections/home/GatheringConcepts";
 
-// The three gathering concepts now live together on the home carousel.
+export const metadata = { title: "Gathering Scattered Israel" };
+
 export default function GatheringPage() {
-  redirect("/");
+  return <GatheringConcepts start={1} />;
 }
